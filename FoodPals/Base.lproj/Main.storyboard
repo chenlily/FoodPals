@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qPf-oh-qPg">
-                                <rect key="frame" x="40" y="96" width="540" height="402"/>
+                                <rect key="frame" x="147" y="110" width="540" height="402"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csB-Kr-oKJ">
                                         <rect key="frame" x="213" y="0.0" width="115" height="21"/>
@@ -41,6 +41,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qWs-pG-Ut4">
                                                 <rect key="frame" x="128" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="availSwitchPressedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ugz-ct-S1v"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -71,12 +74,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgo-My-up0">
                                         <rect key="frame" x="222" y="372" width="97" height="30"/>
                                         <state key="normal" title="Find FoodPals"/>
+                                        <connections>
+                                            <action selector="findPals:" destination="BYZ-38-t0r" eventType="touchDown" id="elT-FJ-qR5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="7ve-TT-GZL" firstAttribute="top" secondItem="vOn-Gx-R4g" secondAttribute="bottom" constant="10" id="SUJ-3n-E0h"/>
-                                    <constraint firstItem="vOn-Gx-R4g" firstAttribute="top" secondItem="qPf-oh-qPg" secondAttribute="top" constant="10" id="YHY-om-kBL"/>
-                                </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="csB-Kr-oKJ"/>
@@ -91,6 +93,9 @@
                             <constraint firstItem="qPf-oh-qPg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="ISv-La-b5j"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="availSwitch" destination="qWs-pG-Ut4" id="Vf0-B8-baK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
