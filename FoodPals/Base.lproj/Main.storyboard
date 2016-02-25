@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qPf-oh-qPg">
-                                <rect key="frame" x="147" y="110" width="540" height="402"/>
+                                <rect key="frame" x="30" y="90" width="540" height="403"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csB-Kr-oKJ">
                                         <rect key="frame" x="213" y="0.0" width="115" height="21"/>
@@ -48,7 +48,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ve-TT-GZL">
-                                        <rect key="frame" x="251" y="31" width="40" height="21"/>
+                                        <rect key="frame" x="250" y="31" width="40" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -58,6 +58,9 @@
                                         <date key="date" timeIntervalSinceReferenceDate="478122227.25836003">
                                             <!--2016-02-25 19:43:47 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="fromDatePickerAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="pka-Sp-59O"/>
+                                        </connections>
                                     </datePicker>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Da-Tu-oLo">
                                         <rect key="frame" x="261" y="202" width="19" height="21"/>
@@ -66,13 +69,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="150" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="tNr-pa-HfK">
-                                        <rect key="frame" x="110" y="222" width="320" height="150"/>
+                                        <rect key="frame" x="110" y="223" width="320" height="150"/>
                                         <date key="date" timeIntervalSinceReferenceDate="478122227.25836003">
                                             <!--2016-02-25 19:43:47 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="toDatePickerAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="9vC-HZ-g3q"/>
+                                        </connections>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgo-My-up0">
-                                        <rect key="frame" x="222" y="372" width="97" height="30"/>
+                                        <rect key="frame" x="222" y="373" width="97" height="30"/>
                                         <state key="normal" title="Find FoodPals"/>
                                         <connections>
                                             <action selector="findPals:" destination="BYZ-38-t0r" eventType="touchDown" id="elT-FJ-qR5"/>
@@ -95,6 +101,8 @@
                     </view>
                     <connections>
                         <outlet property="availSwitch" destination="qWs-pG-Ut4" id="Vf0-B8-baK"/>
+                        <outlet property="fromDatePicker" destination="Yc9-U1-u8u" id="iYA-1p-puk"/>
+                        <outlet property="toDatePicker" destination="tNr-pa-HfK" id="VU4-01-9Rn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var fromText: UILabel!
     @IBOutlet weak var availSwitch: UISwitch!
+    @IBOutlet var fromDatePicker: UIDatePicker!
+    @IBOutlet var toDatePicker: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,5 +43,12 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func fromDatePickerAction(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func toDatePickerAction(sender: AnyObject) {
+        
+    }
 }
 
