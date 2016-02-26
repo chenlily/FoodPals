@@ -24,6 +24,12 @@ class ViewController: UIViewController {
         print("view loaded")
         
         availSwitch.addTarget(self, action: Selector("availStateChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        //calls fromDatePickerChanged function every time the fromTIme is changed
+        fromDatePicker.addTarget(self, action: Selector("fromDatePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        //calls toDatePickerChanged function every time the toTime is changed
+        toDatePicker.addTarget(self, action: Selector("toDatePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +60,28 @@ class ViewController: UIViewController {
             findPalsButton.enabled = false
 
         }
+    }
+    
+    func fromDatePickerChanged(fromDatePicker:UIDatePicker) {
+        print("wazzah");
+        let timeFormatter = NSDateFormatter()
+    
+        timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
+        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+    
+        let strTime = timeFormatter.stringFromDate(fromDatePicker.date)
+        print(strTime)
+    }
+    
+    func toDatePickerChanged(toDatePicker:UIDatePicker){
+        print("wazzah2");
+        let timeFormatter = NSDateFormatter()
+        
+        timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
+        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        let strTime = timeFormatter.stringFromDate(toDatePicker.date)
+        print(strTime)
     }
 
     @IBAction func fromDatePickerAction(sender: AnyObject) {
