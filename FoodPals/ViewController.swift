@@ -14,7 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var availSwitch: UISwitch!
     @IBOutlet var fromDatePicker: UIDatePicker!
     @IBOutlet var toDatePicker: UIDatePicker!
-
+    @IBOutlet weak var findPalsButton: UIButton!
+    @IBOutlet weak var toText: UILabel!
+    @IBOutlet weak var secondStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,8 +41,18 @@ class ViewController: UIViewController {
     func availStateChanged(switchState: UISwitch) {
         if switchState.on {
             print("its on")
+//            secondStackView.hidden = false
+            toDatePicker.userInteractionEnabled = true
+            fromDatePicker.userInteractionEnabled = true
+            findPalsButton.enabled = true
+            
         } else {
             print("its off")
+//            secondStackView.hidden = true
+            toDatePicker.userInteractionEnabled = false
+            fromDatePicker.userInteractionEnabled = false
+            findPalsButton.enabled = false
+
         }
     }
 

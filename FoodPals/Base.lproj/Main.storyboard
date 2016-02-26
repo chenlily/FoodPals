@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yF5-ja-HDc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Edit Your Availability-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FoodPals" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,8 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qPf-oh-qPg">
-                                <rect key="frame" x="30" y="90" width="540" height="403"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vOn-Gx-R4g">
+                                <rect key="frame" x="19" y="138" width="353" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available today   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6X-4S-2NR">
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qWs-pG-Ut4">
+                                        <rect key="frame" x="304" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="availSwitchPressedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ugz-ct-S1v"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qPf-oh-qPg">
+                                <rect key="frame" x="19" y="209" width="540" height="371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csB-Kr-oKJ">
                                         <rect key="frame" x="213" y="0.0" width="115" height="21"/>
@@ -30,31 +47,14 @@
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96a-Ne-gJx">
                                         <rect key="frame" x="246" y="21" width="51" height="31"/>
                                     </switch>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vOn-Gx-R4g">
-                                        <rect key="frame" x="182" y="0.0" width="177" height="31"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Available today   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6X-4S-2NR">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="31"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qWs-pG-Ut4">
-                                                <rect key="frame" x="128" y="0.0" width="51" height="31"/>
-                                                <connections>
-                                                    <action selector="availSwitchPressedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ugz-ct-S1v"/>
-                                                </connections>
-                                            </switch>
-                                        </subviews>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ve-TT-GZL">
-                                        <rect key="frame" x="250" y="31" width="40" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ve-TT-GZL">
+                                        <rect key="frame" x="251" y="0.0" width="40" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="150" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yc9-U1-u8u">
-                                        <rect key="frame" x="110" y="52" width="320" height="150"/>
+                                    <datePicker contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="150" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yc9-U1-u8u">
+                                        <rect key="frame" x="110" y="21" width="320" height="150"/>
                                         <date key="date" timeIntervalSinceReferenceDate="478122227.25836003">
                                             <!--2016-02-25 19:43:47 +0000-->
                                         </date>
@@ -62,14 +62,14 @@
                                             <action selector="fromDatePickerAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="pka-Sp-59O"/>
                                         </connections>
                                     </datePicker>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Da-Tu-oLo">
-                                        <rect key="frame" x="261" y="202" width="19" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Da-Tu-oLo">
+                                        <rect key="frame" x="261" y="171" width="19" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="150" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="tNr-pa-HfK">
-                                        <rect key="frame" x="110" y="223" width="320" height="150"/>
+                                    <datePicker contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="150" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="tNr-pa-HfK">
+                                        <rect key="frame" x="110" y="191" width="320" height="150"/>
                                         <date key="date" timeIntervalSinceReferenceDate="478122227.25836003">
                                             <!--2016-02-25 19:43:47 +0000-->
                                         </date>
@@ -77,11 +77,12 @@
                                             <action selector="toDatePickerAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="9vC-HZ-g3q"/>
                                         </connections>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgo-My-up0">
-                                        <rect key="frame" x="222" y="373" width="97" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgo-My-up0">
+                                        <rect key="frame" x="222" y="341" width="97" height="30"/>
                                         <state key="normal" title="Find FoodPals"/>
                                         <connections>
                                             <action selector="findPals:" destination="BYZ-38-t0r" eventType="touchDown" id="elT-FJ-qR5"/>
+                                            <segue destination="Knx-Iu-gvA" kind="show" id="rpY-mi-vhh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -97,17 +98,106 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="qPf-oh-qPg" secondAttribute="trailing" constant="10" id="AcZ-um-dvm"/>
                             <constraint firstItem="qPf-oh-qPg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="ISv-La-b5j"/>
+                            <constraint firstItem="qPf-oh-qPg" firstAttribute="top" secondItem="vOn-Gx-R4g" secondAttribute="bottom" constant="20" id="JXz-5k-U95"/>
+                            <constraint firstItem="vOn-Gx-R4g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Skv-mD-PLy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qPf-oh-qPg" secondAttribute="bottom" constant="20" id="pM9-cH-b1H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vOn-Gx-R4g" secondAttribute="trailing" constant="197" id="vby-3P-Ela"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Edit Your Availability" id="HDK-0c-cLd"/>
                     <connections>
                         <outlet property="availSwitch" destination="qWs-pG-Ut4" id="Vf0-B8-baK"/>
+                        <outlet property="findPalsButton" destination="bgo-My-up0" id="DXl-Ed-rTG"/>
                         <outlet property="fromDatePicker" destination="Yc9-U1-u8u" id="iYA-1p-puk"/>
+                        <outlet property="secondStackView" destination="qPf-oh-qPg" id="6w8-YR-olQ"/>
                         <outlet property="toDatePicker" destination="tNr-pa-HfK" id="VU4-01-9Rn"/>
+                        <outlet property="toText" destination="5Da-Tu-oLo" id="u50-4m-n0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="311"/>
+            <point key="canvasLocation" x="1057" y="467"/>
+        </scene>
+        <!--Available Friends-->
+        <scene sceneID="SG1-YJ-3ZQ">
+            <objects>
+                <tableViewController id="adp-1f-s8Z" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="600" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" id="IfT-e5-JaM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="89" id="aC3-Gc-skt">
+                                <rect key="frame" x="0.0" y="92" width="600" height="89"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aC3-Gc-skt" id="A0h-Zs-N9P">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="88.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHe-zq-XPN">
+                                            <rect key="frame" x="21" y="19" width="559" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available from 12:00 PM to 11:30 PM " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1Q-Sf-2d0">
+                                            <rect key="frame" x="21" y="48" width="434" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="adp-1f-s8Z" id="Wkj-7Z-cDE"/>
+                            <outlet property="delegate" destination="adp-1f-s8Z" id="Bv0-F3-qCt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Available Friends" id="DpA-H1-rly">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vtz-ti-eMA"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3I-WB-QlP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2675" y="467"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Jc3-JJ-l7v">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yF5-ja-HDc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bI5-W2-u3H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bx5-1R-4Yl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qq1-fp-gzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="467"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yQW-xU-xXr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Knx-Iu-gvA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VWQ-IB-yww">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="adp-1f-s8Z" kind="relationship" relationship="rootViewController" id="sd9-PF-a9x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1W-8a-3ot" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1863" y="467"/>
         </scene>
     </scenes>
 </document>
