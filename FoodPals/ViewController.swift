@@ -25,11 +25,14 @@ class ViewController: UIViewController {
         
         availSwitch.addTarget(self, action: Selector("availStateChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         
-        //calls fromDatePickerChanged function every time the fromTIme is changed
-        fromDatePicker.addTarget(self, action: Selector("fromDatePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         
+        //DEBUGGING
+        //calls fromDatePickerChanged function every time the fromTIme is changed
+        //fromDatePicker.addTarget(self, action: Selector("fromDatePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        //DEBUGGING
         //calls toDatePickerChanged function every time the toTime is changed
-        toDatePicker.addTarget(self, action: Selector("toDatePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        //toDatePicker.addTarget(self, action: Selector("toDatePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +43,8 @@ class ViewController: UIViewController {
     // MARK: Actions
     @IBAction func findPals(sender: UIButton) {
         print("hello")
+        fromDatePickerChanged(fromDatePicker)
+        toDatePickerChanged(toDatePicker)
     }
     @IBAction func availSwitchPressedAction(sender: UISwitch) {
     }
