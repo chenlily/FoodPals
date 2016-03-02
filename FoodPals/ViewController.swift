@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func findPals(sender: UIButton) {
-        print("hello")
+        print("Pressed Find FoodPals")
         fromDatePickerChanged(fromDatePicker)
         toDatePickerChanged(toDatePicker)
         // K: When you click "Find FoodPals," data will be sent to Firebase
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     }
     
     func fromDatePickerChanged(fromDatePicker:UIDatePicker) {
-        print("wazzah");
+        print("Changed from time");
         let timeFormatter = NSDateFormatter()
     
         timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
     }
     
     func toDatePickerChanged(toDatePicker:UIDatePicker){
-        print("wazzah2");
+        print("Changed to time");
         let timeFormatter = NSDateFormatter()
         
         timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
