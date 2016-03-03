@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     // K: Dummy data
     let yunhan = ["from": "12:00 PM", "to": "1:00 PM"]
-    let kaylee = ["from": "11:00 PM", "to": "12:00 PM"]
+    let kaylee = ["from": "11:00 AM", "to": "12:00 PM"]
     
     // K: the current FoodPals user
     var user = ["from": "", "to": ""]
