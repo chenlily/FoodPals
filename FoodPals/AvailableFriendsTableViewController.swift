@@ -23,7 +23,8 @@ class AvailableFriendsTableViewController: UITableViewController {
     
     func loadSampleAvailableFriends() {
         let pal1 = FoodPal(first_name: "Kaylee", last_name: "Schonsheck", from: "11:30 AM", to: "12:30 PM")!
-        foodPals += [pal1]
+        let pal2 = FoodPal(first_name: "Yunhan", last_name: "Wei", from: "12:00 PM", to: "2:00 PM")!
+        foodPals += [pal1, pal2]
         print("Loaded sample friends")
     }
 
