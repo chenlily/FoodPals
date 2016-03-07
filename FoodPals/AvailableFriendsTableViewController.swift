@@ -56,7 +56,7 @@ class AvailableFriendsTableViewController: UITableViewController {
         print(foodPal.first_name, foodPal.last_name, foodPal.from, foodPal.to)
         
         cell.nameLabel.text = foodPal.first_name + " " + foodPal.last_name
-        // cell.availabilityLabel.text = foodPal.from + " " + foodPal.to
+        cell.availabilityLabel.text = foodPal.from + " " + foodPal.to
         
         return cell
     }
