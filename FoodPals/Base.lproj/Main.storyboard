@@ -104,7 +104,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="vOn-Gx-R4g" secondAttribute="trailing" constant="197" id="vby-3P-Ela"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Your Availability" id="HDK-0c-cLd"/>
+                    <navigationItem key="navigationItem" title="Edit Your Availability" id="HDK-0c-cLd">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="i05-TJ-EuE">
+                            <connections>
+                                <action selector="logout:" destination="BYZ-38-t0r" id="Ygk-Tc-ifm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="availSwitch" destination="qWs-pG-Ut4" id="Vf0-B8-baK"/>
                         <outlet property="findPalsButton" destination="bgo-My-up0" id="DXl-Ed-rTG"/>
@@ -296,7 +302,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="Qqi-B3-nPu">
             <objects>
-                <viewController id="Wwz-xU-VQx" customClass="WelcomeViewController" customModule="FoodPals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="Wwz-xU-VQx" customClass="WelcomeViewController" customModule="FoodPals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kDY-VV-g0o"/>
                         <viewControllerLayoutGuide type="bottom" id="Ne9-cw-OSw"/>
