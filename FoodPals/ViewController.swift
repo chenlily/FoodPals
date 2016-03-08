@@ -18,15 +18,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var findPalsButton: UIButton!
     @IBOutlet weak var toText: UILabel!
     @IBOutlet weak var secondStackView: UIStackView!
-    // K: This is the link that data will be sent to
+    @IBOutlet weak var welcomeMessage: UILabel!
+    // This is the link that data will be sent to
     let ref = Firebase(url: "https://incandescent-torch-9100.firebaseIO.com/")
     
-    // K: Dummy data
+    // Dummy data
     let yunhan = ["from": "12:00 PM", "to": "1:00 PM"]
     let kaylee = ["from": "11:00 AM", "to": "12:00 PM"]
     
-    // K: the current FoodPals user
+    // The current FoodPals user
     var user = ["from": "", "to": ""]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,13 @@ class ViewController: UIViewController {
         
         availSwitch.addTarget(self, action: Selector("availStateChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         
+        DataService.dataService.CURRENT_USER_REF.observeEventType(FEventType.Value, withBlock: { snapshot in
+            
+            let currentUser = snapshot.value.objectForKey("name") as! String
+            
+            self.welcomeMessage.text = "Welcome, " + currentUser + "!"
+            
+        })
         
         //DEBUGGING
         //calls fromDatePickerChanged function every time the fromTIme is changed

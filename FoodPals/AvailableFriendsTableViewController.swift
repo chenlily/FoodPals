@@ -24,7 +24,8 @@ class AvailableFriendsTableViewController: UITableViewController {
     func loadSampleAvailableFriends() {
         let pal1 = FoodPal(first_name: "Kaylee", last_name: "Schonsheck", from: "11:30 AM", to: "12:30 PM")!
         let pal2 = FoodPal(first_name: "Yunhan", last_name: "Wei", from: "12:00 PM", to: "2:00 PM")!
-        foodPals += [pal1, pal2]
+        let pal3 = FoodPal(first_name: "Derek", last_name: "Siew" , from: "12:00 PM", to: "1:00 PM")!
+        foodPals += [pal1, pal2, pal3]
         print("Loaded sample friends")
     }
 
@@ -57,7 +58,13 @@ class AvailableFriendsTableViewController: UITableViewController {
         print(foodPal.first_name, foodPal.last_name, foodPal.from, foodPal.to)
         
         cell.nameLabel.text = foodPal.first_name + " " + foodPal.last_name
-        cell.availabilityLabel.text = foodPal.from + " " + foodPal.to
+        cell.availabilityLabel.text = foodPal.from + " to " + foodPal.to
+        
+        if indexPath.row % 2 == 1 {
+            cell.backgroundColor = UIColor(red: 249/255, green: 250/255, blue: 250/255, alpha: 1.0)
+        } else {
+            cell.backgroundColor = UIColor.whiteColor();
+        }
         
         return cell
     }
