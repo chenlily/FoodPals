@@ -1,30 +1,26 @@
 //
-//  AvailableTableViewCell.swift
+//  ContactTableViewCell.swift
 //  FoodPals
 //
-//  Created by Wei, Yunhan on 3/3/16.
+//  Created by Wei, Yunhan on 3/8/16.
 //  Copyright © 2016 PuppyCuddlers. All rights reserved.
 //
 
 import UIKit
 
-class AddContactsTableViewCell: UITableViewCell {
-    
-    // MARK: Properties
-
+class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var NameText: UILabel!
-    @IBOutlet weak var EmailText: UILabel! //for debug delete later brah
-    
-    
-    
+    @IBOutlet weak var EmailText: UILabel! //debug purposes
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
+
 }
