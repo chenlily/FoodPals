@@ -218,22 +218,22 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xeg-V3-YhX">
                                                 <rect key="frame" x="0.0" y="30" width="139" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kEV-vq-3MV">
                                                 <rect key="frame" x="0.0" y="60" width="139" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNC-Tw-n5b">
                                                 <rect key="frame" x="0.0" y="90" width="139" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vLr-na-I9O">
                                                 <rect key="frame" x="0.0" y="120" width="139" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBO-ZZ-4Wu">
                                                 <rect key="frame" x="0.0" y="150" width="139" height="30"/>
@@ -262,11 +262,12 @@
                         <outlet property="nameEntry" destination="mOV-c2-a5q" id="gwG-iZ-fJh"/>
                         <outlet property="passwordEntry" destination="yNC-Tw-n5b" id="aWI-RT-3Pu"/>
                         <outlet property="phoneNumberEntry" destination="Xeg-V3-YhX" id="qro-Me-2FD"/>
+                        <segue destination="yF5-ja-HDc" kind="show" identifier="NewUserLoggedIn" id="aiT-Hv-jyf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2Q-HG-Utk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278" y="1320"/>
+            <point key="canvasLocation" x="267" y="1364"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Qqi-B3-nPu">
@@ -292,12 +293,12 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n8P-Dz-k2f">
                                         <rect key="frame" x="43" y="21" width="56" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kte-W1-tF1">
                                         <rect key="frame" x="29" y="51" width="84" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqd-YX-3AU">
                                         <rect key="frame" x="52" y="81" width="38" height="30"/>
@@ -322,7 +323,7 @@
                     <connections>
                         <outlet property="emailEntry" destination="n8P-Dz-k2f" id="GH0-am-97F"/>
                         <outlet property="passwordEntry" destination="Kte-W1-tF1" id="bKF-05-NW1"/>
-                        <segue destination="yF5-ja-HDc" kind="show" id="DvR-z3-lu4"/>
+                        <segue destination="yF5-ja-HDc" kind="show" identifier="LoggedIn" id="DvR-z3-lu4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xlr-pp-G9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -348,4 +349,7 @@
             <point key="canvasLocation" x="1863" y="467"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aiT-Hv-jyf"/>
+    </inferredMetricsTieBreakers>
 </document>
