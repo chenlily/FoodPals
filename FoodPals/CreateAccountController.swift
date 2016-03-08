@@ -65,7 +65,7 @@ class CreateAccountController: UIViewController{
                     NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
                     
                     // Enter the app.
-                    self.performSegueWithIdentifier("NewUserLoggedIn", sender: nil)
+                    self.performSegueWithIdentifier("NewUserAddFriends", sender: nil)
                 }
             })
             
