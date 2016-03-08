@@ -14,6 +14,8 @@
 		B28259101C8E5EEB00E21110 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282590F1C8E5EEB00E21110 /* CreateAccountController.swift */; };
 		B28259121C8E63BB00E21110 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28259111C8E63BB00E21110 /* Constants.swift */; };
 		B28259141C8E64C100E21110 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28259131C8E64C100E21110 /* DataService.swift */; };
+		B28259161C8E8F4F00E21110 /* AddContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28259151C8E8F4F00E21110 /* AddContactsTableViewController.swift */; };
+		B28259181C8E94B000E21110 /* AddContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28259171C8E94B000E21110 /* AddContactsTableViewCell.swift */; };
 		B2CEF16C1C8E5A2E0032DE11 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEF16B1C8E5A2E0032DE11 /* WelcomeViewController.swift */; };
 		D629E9771C7F8A6200FFF1E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629E9761C7F8A6200FFF1E0 /* AppDelegate.swift */; };
 		D629E9791C7F8A6200FFF1E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629E9781C7F8A6200FFF1E0 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 		B282590F1C8E5EEB00E21110 /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		B28259111C8E63BB00E21110 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B28259131C8E64C100E21110 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		B28259151C8E8F4F00E21110 /* AddContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsTableViewController.swift; sourceTree = "<group>"; };
+		B28259171C8E94B000E21110 /* AddContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsTableViewCell.swift; sourceTree = "<group>"; };
 		B2CEF16B1C8E5A2E0032DE11 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C0FF2FA8F0B3436942F05907 /* Pods-FoodPals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPals.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodPals/Pods-FoodPals.release.xcconfig"; sourceTree = "<group>"; };
 		D629E9731C7F8A6200FFF1E0 /* FoodPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,8 @@
 				B282590F1C8E5EEB00E21110 /* CreateAccountController.swift */,
 				B28259111C8E63BB00E21110 /* Constants.swift */,
 				B28259131C8E64C100E21110 /* DataService.swift */,
+				B28259151C8E8F4F00E21110 /* AddContactsTableViewController.swift */,
+				B28259171C8E94B000E21110 /* AddContactsTableViewCell.swift */,
 			);
 			path = FoodPals;
 			sourceTree = "<group>";
@@ -293,12 +299,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28259181C8E94B000E21110 /* AddContactsTableViewCell.swift in Sources */,
 				B28259141C8E64C100E21110 /* DataService.swift in Sources */,
 				39011A8F1C889BB4006BD4D4 /* AvailableTableViewCell.swift in Sources */,
 				D629E9791C7F8A6200FFF1E0 /* ViewController.swift in Sources */,
 				B28259101C8E5EEB00E21110 /* CreateAccountController.swift in Sources */,
 				D629E9771C7F8A6200FFF1E0 /* AppDelegate.swift in Sources */,
 				B2CEF16C1C8E5A2E0032DE11 /* WelcomeViewController.swift in Sources */,
+				B28259161C8E8F4F00E21110 /* AddContactsTableViewController.swift in Sources */,
 				39011A8D1C8893C6006BD4D4 /* FoodPal.swift in Sources */,
 				39011A8B1C889325006BD4D4 /* AvailableFriendsTableViewController.swift in Sources */,
 				B28259121C8E63BB00E21110 /* Constants.swift in Sources */,

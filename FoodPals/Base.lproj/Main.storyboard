@@ -110,6 +110,11 @@
                                 <action selector="logout:" destination="BYZ-38-t0r" id="Ygk-Tc-ifm"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add Friends" id="LB6-e4-btl">
+                            <connections>
+                                <segue destination="tf7-rH-6lF" kind="presentation" id="zlD-aR-kPc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="availSwitch" destination="qWs-pG-Ut4" id="Vf0-B8-baK"/>
@@ -274,30 +279,66 @@
                         <outlet property="nameEntry" destination="mOV-c2-a5q" id="gwG-iZ-fJh"/>
                         <outlet property="passwordEntry" destination="yNC-Tw-n5b" id="aWI-RT-3Pu"/>
                         <outlet property="phoneNumberEntry" destination="Xeg-V3-YhX" id="qro-Me-2FD"/>
-                        <segue destination="0W1-w4-v6v" kind="show" identifier="NewUserAddFriends" id="lXL-ga-hfj"/>
+                        <segue destination="tf7-rH-6lF" kind="show" identifier="NewUserAddFriends" id="ZeJ-Vq-eOx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2Q-HG-Utk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="267" y="1364"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="MyT-rG-mLa">
+        <!--Add Contacts as Friends-->
+        <scene sceneID="joL-YK-T5c">
             <objects>
-                <viewController id="0W1-w4-v6v" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="X6R-Pl-F6c"/>
-                        <viewControllerLayoutGuide type="bottom" id="6R6-fr-mk0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FGi-8Z-qVU">
+                <tableViewController id="rg1-LH-Dc4" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y7G-5E-cJh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mFs-IN-oig" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DYh-gC-rck" customClass="AddContactsTableViewCell" customModule="FoodPals" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DYh-gC-rck" id="r2t-0b-SeT">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlv-73-X5U">
+                                            <rect key="frame" x="8" y="3" width="233" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C54-bi-etV">
+                                            <rect key="frame" x="8" y="24" width="95" height="11"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="EmailText" destination="C54-bi-etV" id="BcM-NP-yOk"/>
+                                    <outlet property="NameText" destination="vlv-73-X5U" id="Aza-h5-Zey"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rg1-LH-Dc4" id="TMk-54-Efo"/>
+                            <outlet property="delegate" destination="rg1-LH-Dc4" id="m0E-4k-frH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Contacts as Friends" id="pMb-3B-oTw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hEG-N0-iNb">
+                            <connections>
+                                <segue destination="4gq-eb-OlE" kind="unwind" unwindAction="doneAddContacts:" id="9cH-d9-oxc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQX-6o-WG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4gq-eb-OlE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="1356"/>
+            <point key="canvasLocation" x="1816" y="1354"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Qqi-B3-nPu">
@@ -373,5 +414,26 @@
             </objects>
             <point key="canvasLocation" x="1863" y="467"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oqA-z7-xO2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tf7-rH-6lF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FMy-nP-ggc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rg1-LH-Dc4" kind="relationship" relationship="rootViewController" id="E8q-mX-mrE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X7x-TO-OqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="1354"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zlD-aR-kPc"/>
+    </inferredMetricsTieBreakers>
 </document>
