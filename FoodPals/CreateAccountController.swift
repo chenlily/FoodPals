@@ -10,10 +10,13 @@ import Foundation
 import UIKit
 import Firebase
 
-class WelcomeViewController: UIViewController{
+class CreateAccountController: UIViewController{
     
+    @IBOutlet weak var nameEntry: UITextField!
+    @IBOutlet weak var phoneNumberEntry: UITextField!
     @IBOutlet weak var emailEntry: UITextField!
     @IBOutlet weak var passwordEntry: UITextField!
+    @IBOutlet weak var confirmPassEntry: UITextField!
     
     override func viewDidLoad() {
         
@@ -23,7 +26,11 @@ class WelcomeViewController: UIViewController{
         
     }
     
-    @IBAction func loginButton(sender: AnyObject) {
-        
+    @IBAction func createAccount(sender: AnyObject) {
+    }
+
+ 
+    @IBAction func cancelCreateAccount(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {})
     }
 }

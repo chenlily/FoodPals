@@ -11,6 +11,7 @@
 		39011A8B1C889325006BD4D4 /* AvailableFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39011A8A1C889325006BD4D4 /* AvailableFriendsTableViewController.swift */; };
 		39011A8D1C8893C6006BD4D4 /* FoodPal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39011A8C1C8893C6006BD4D4 /* FoodPal.swift */; };
 		39011A8F1C889BB4006BD4D4 /* AvailableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39011A8E1C889BB4006BD4D4 /* AvailableTableViewCell.swift */; };
+		B28259101C8E5EEB00E21110 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282590F1C8E5EEB00E21110 /* CreateAccountController.swift */; };
 		B2CEF16C1C8E5A2E0032DE11 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEF16B1C8E5A2E0032DE11 /* WelcomeViewController.swift */; };
 		D629E9771C7F8A6200FFF1E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629E9761C7F8A6200FFF1E0 /* AppDelegate.swift */; };
 		D629E9791C7F8A6200FFF1E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629E9781C7F8A6200FFF1E0 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		39011A8C1C8893C6006BD4D4 /* FoodPal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodPal.swift; sourceTree = "<group>"; };
 		39011A8E1C889BB4006BD4D4 /* AvailableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableTableViewCell.swift; sourceTree = "<group>"; };
 		461D8DF52F19500C21638C28 /* Pods_FoodPals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodPals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B282590F1C8E5EEB00E21110 /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		B2CEF16B1C8E5A2E0032DE11 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C0FF2FA8F0B3436942F05907 /* Pods-FoodPals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPals.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodPals/Pods-FoodPals.release.xcconfig"; sourceTree = "<group>"; };
 		D629E9731C7F8A6200FFF1E0 /* FoodPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				D629E97F1C7F8A6200FFF1E0 /* LaunchScreen.storyboard */,
 				D629E9821C7F8A6200FFF1E0 /* Info.plist */,
 				B2CEF16B1C8E5A2E0032DE11 /* WelcomeViewController.swift */,
+				B282590F1C8E5EEB00E21110 /* CreateAccountController.swift */,
 			);
 			path = FoodPals;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				39011A8F1C889BB4006BD4D4 /* AvailableTableViewCell.swift in Sources */,
 				D629E9791C7F8A6200FFF1E0 /* ViewController.swift in Sources */,
+				B28259101C8E5EEB00E21110 /* CreateAccountController.swift in Sources */,
 				D629E9771C7F8A6200FFF1E0 /* AppDelegate.swift in Sources */,
 				B2CEF16C1C8E5A2E0032DE11 /* WelcomeViewController.swift in Sources */,
 				39011A8D1C8893C6006BD4D4 /* FoodPal.swift in Sources */,

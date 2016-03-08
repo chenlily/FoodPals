@@ -192,10 +192,86 @@
             </objects>
             <point key="canvasLocation" x="245" y="467"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Account Controller-->
+        <scene sceneID="TXQ-Zp-DvU">
+            <objects>
+                <viewController id="A4N-Dn-xVV" customClass="CreateAccountController" customModule="FoodPals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vhx-hw-ssE"/>
+                        <viewControllerLayoutGuide type="bottom" id="DYS-RL-cpm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MB0-2m-fZh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RGH-sc-ecg">
+                                <rect key="frame" x="20" y="20" width="139" height="210"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="n7i-u0-FlR">
+                                        <rect key="frame" x="0.0" y="0.0" width="139" height="180"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mOV-c2-a5q">
+                                                <rect key="frame" x="0.0" y="0.0" width="139" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xeg-V3-YhX">
+                                                <rect key="frame" x="0.0" y="30" width="139" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kEV-vq-3MV">
+                                                <rect key="frame" x="0.0" y="60" width="139" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNC-Tw-n5b">
+                                                <rect key="frame" x="0.0" y="90" width="139" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vLr-na-I9O">
+                                                <rect key="frame" x="0.0" y="120" width="139" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBO-ZZ-4Wu">
+                                                <rect key="frame" x="0.0" y="150" width="139" height="30"/>
+                                                <state key="normal" title="Create Account"/>
+                                                <connections>
+                                                    <action selector="createAccount:" destination="A4N-Dn-xVV" eventType="touchUpInside" id="rs8-fY-pkd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8i-aB-66b">
+                                        <rect key="frame" x="0.0" y="180" width="139" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelCreateAccount:" destination="A4N-Dn-xVV" eventType="touchUpInside" id="qOy-fx-rAl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPassEntry" destination="vLr-na-I9O" id="mcD-e1-WcK"/>
+                        <outlet property="emailEntry" destination="kEV-vq-3MV" id="f8b-8g-K2e"/>
+                        <outlet property="nameEntry" destination="mOV-c2-a5q" id="gwG-iZ-fJh"/>
+                        <outlet property="passwordEntry" destination="yNC-Tw-n5b" id="aWI-RT-3Pu"/>
+                        <outlet property="phoneNumberEntry" destination="Xeg-V3-YhX" id="qro-Me-2FD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S2Q-HG-Utk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="278" y="1320"/>
+        </scene>
+        <!--Welcome View Controller-->
         <scene sceneID="Qqi-B3-nPu">
             <objects>
-                <viewController id="Wwz-xU-VQx" sceneMemberID="viewController">
+                <viewController id="Wwz-xU-VQx" customClass="WelcomeViewController" customModule="FoodPals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kDY-VV-g0o"/>
                         <viewControllerLayoutGuide type="bottom" id="Ne9-cw-OSw"/>
@@ -204,15 +280,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMT-oV-QfQ">
-                                <rect key="frame" x="264" y="160" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-O8-5IK">
+                                <rect key="frame" x="20" y="20" width="142" height="141"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Login To FoodPals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxu-L0-1DW">
+                                        <rect key="frame" x="1" y="0.0" width="140" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n8P-Dz-k2f">
+                                        <rect key="frame" x="43" y="21" width="56" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kte-W1-tF1">
+                                        <rect key="frame" x="29" y="51" width="84" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqd-YX-3AU">
+                                        <rect key="frame" x="52" y="81" width="38" height="30"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginButton:" destination="Wwz-xU-VQx" eventType="touchUpInside" id="7HP-xp-QWV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcC-IL-hcH">
+                                        <rect key="frame" x="0.0" y="111" width="142" height="30"/>
+                                        <state key="normal" title="Create New Account"/>
+                                        <connections>
+                                            <segue destination="A4N-Dn-xVV" kind="presentation" id="NjE-oN-ufd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="fuM-6g-kSq"/>
                     <connections>
+                        <outlet property="emailEntry" destination="n8P-Dz-k2f" id="GH0-am-97F"/>
+                        <outlet property="passwordEntry" destination="Kte-W1-tF1" id="bKF-05-NW1"/>
                         <segue destination="yF5-ja-HDc" kind="show" id="DvR-z3-lu4"/>
                     </connections>
                 </viewController>
