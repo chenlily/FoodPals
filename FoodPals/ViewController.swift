@@ -75,14 +75,14 @@ class ViewController: UIViewController {
     func availStateChanged(switchState: UISwitch) {
         if switchState.on {
             print("its on")
-//            secondStackView.hidden = false
+            secondStackView.hidden = false
             toDatePicker.userInteractionEnabled = true
             fromDatePicker.userInteractionEnabled = true
             findPalsButton.enabled = true
             
         } else {
             print("its off")
-//            secondStackView.hidden = true
+            secondStackView.hidden = true
             toDatePicker.userInteractionEnabled = false
             fromDatePicker.userInteractionEnabled = false
             findPalsButton.enabled = false
