@@ -24,6 +24,7 @@
 		D629E97E1C7F8A6200FFF1E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D629E97D1C7F8A6200FFF1E0 /* Assets.xcassets */; };
 		D629E9811C7F8A6200FFF1E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D629E97F1C7F8A6200FFF1E0 /* LaunchScreen.storyboard */; };
 		D629E98C1C7F8A6200FFF1E0 /* FoodPalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629E98B1C7F8A6200FFF1E0 /* FoodPalsTests.swift */; };
+		D6DFB3401C8FBCEC00FB9F94 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DFB33F1C8FBCEC00FB9F94 /* MessageComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		D629E9871C7F8A6200FFF1E0 /* FoodPalsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodPalsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D629E98B1C7F8A6200FFF1E0 /* FoodPalsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPalsTests.swift; sourceTree = "<group>"; };
 		D629E98D1C7F8A6200FFF1E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6DFB33F1C8FBCEC00FB9F94 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		FE8AED3F476D03ACFBE34516 /* Pods-FoodPals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodPals/Pods-FoodPals.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				D629E9761C7F8A6200FFF1E0 /* AppDelegate.swift */,
+				D6DFB33F1C8FBCEC00FB9F94 /* MessageComposer.swift */,
 				D629E97F1C7F8A6200FFF1E0 /* LaunchScreen.storyboard */,
 				D629E97D1C7F8A6200FFF1E0 /* Assets.xcassets */,
 				D629E9821C7F8A6200FFF1E0 /* Info.plist */,
@@ -309,6 +312,7 @@
 				D629E9791C7F8A6200FFF1E0 /* ViewController.swift in Sources */,
 				B28259101C8E5EEB00E21110 /* CreateAccountController.swift in Sources */,
 				D629E9771C7F8A6200FFF1E0 /* AppDelegate.swift in Sources */,
+				D6DFB3401C8FBCEC00FB9F94 /* MessageComposer.swift in Sources */,
 				B2CEF16C1C8E5A2E0032DE11 /* WelcomeViewController.swift in Sources */,
 				B28259161C8E8F4F00E21110 /* ContactsTableViewController.swift in Sources */,
 				39011A8D1C8893C6006BD4D4 /* FoodPal.swift in Sources */,

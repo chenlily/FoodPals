@@ -13,6 +13,7 @@ class AvailableFriendsTableViewController: UITableViewController {
     // MARK: Properties
     
     var foodPals = [FoodPal]()
+    let messageComposer = MessageComposer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,37 @@ class AvailableFriendsTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        if cell != nil {
+            
+            if (messageComposer.canSendText()) {
+                // Obtain a configured MFMessageComposeViewController
+                let messageComposeVC = messageComposer.configuredMessageComposeViewController()
+                
+                // Present the configured MFMessageComposeViewController instance
+                // Note that the dismissal of the VC will be handled by the messageComposer instance,
+                // since it implements the appropriate delegate call-back
+                presentViewController(messageComposeVC, animated: true, completion: nil)
+            } else {
+                // Let the user know if his/her device isn't able to send text messages
+                let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", delegate: self, cancelButtonTitle: "OK")
+                errorAlert.show()
+            }
+            //            // Set the CellID
+            //            var label:UILabel = UILabel()
+            //            for subview in self.view.subviews {
+            //                if subview is UILabel {
+            //                    label = subview as UILabel
+            //                    break
+            //                }
+            //            }
+            //
+            //            var cellID: AnyObject! = (label.text == nil) ? "" : label.text
+            
+        }
     }
     
     /*
