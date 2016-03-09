@@ -21,6 +21,8 @@ class CreateAccountController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         
     }
 
@@ -90,5 +92,9 @@ class CreateAccountController: UIViewController{
  
     @IBAction func cancelCreateAccount(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: {})
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

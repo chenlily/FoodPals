@@ -16,6 +16,8 @@ class WelcomeViewController: UIViewController{
     @IBOutlet weak var passwordEntry: UITextField!
     
     override func viewDidLoad() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         
     }
     
@@ -64,6 +66,10 @@ class WelcomeViewController: UIViewController{
         let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
 }
