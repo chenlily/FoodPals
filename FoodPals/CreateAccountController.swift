@@ -19,8 +19,11 @@ class CreateAccountController: UIViewController{
     @IBOutlet weak var confirmPassEntry: UITextField!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         
     }
+
     
     override func didReceiveMemoryWarning() {
         

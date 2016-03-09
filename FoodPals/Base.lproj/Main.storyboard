@@ -357,27 +357,21 @@
         <scene sceneID="joL-YK-T5c">
             <objects>
                 <tableViewController storyboardIdentifier="ContactsTableViewController" id="rg1-LH-Dc4" customClass="ContactsTableViewController" customModule="FoodPals" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y7G-5E-cJh">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y7G-5E-cJh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.97783644020000005" green="0.97951385059999996" blue="0.98222458960000003" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactTableViewCell" rowHeight="41" id="DYh-gC-rck" customClass="ContactTableViewCell" customModule="FoodPals" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="41"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactTableViewCell" id="DYh-gC-rck" customClass="ContactTableViewCell" customModule="FoodPals" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DYh-gC-rck" id="r2t-0b-SeT">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlv-73-X5U">
-                                            <rect key="frame" x="8" y="3" width="505" height="21"/>
+                                            <rect key="frame" x="8" y="9" width="505" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C54-bi-etV">
-                                            <rect key="frame" x="9" y="24" width="511" height="11"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -385,7 +379,6 @@
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="ContactTableViewCell"/>
                                 <connections>
-                                    <outlet property="EmailText" destination="C54-bi-etV" id="E4v-N7-YJm"/>
                                     <outlet property="NameText" destination="vlv-73-X5U" id="sR0-vY-45t"/>
                                 </connections>
                             </tableViewCell>

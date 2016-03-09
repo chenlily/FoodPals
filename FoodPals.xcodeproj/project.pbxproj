@@ -121,22 +121,22 @@
 		D629E9751C7F8A6200FFF1E0 /* FoodPals */ = {
 			isa = PBXGroup;
 			children = (
-				39011A8E1C889BB4006BD4D4 /* AvailableTableViewCell.swift */,
-				B2419D3D1C8F791B00753B7A /* ContactTableViewCell.swift */,
 				D629E9761C7F8A6200FFF1E0 /* AppDelegate.swift */,
-				D629E9781C7F8A6200FFF1E0 /* ViewController.swift */,
-				D629E97A1C7F8A6200FFF1E0 /* Main.storyboard */,
-				39011A8A1C889325006BD4D4 /* AvailableFriendsTableViewController.swift */,
-				B2419D3F1C8F7C9D00753B7A /* Contact.swift */,
-				39011A8C1C8893C6006BD4D4 /* FoodPal.swift */,
-				D629E97D1C7F8A6200FFF1E0 /* Assets.xcassets */,
 				D629E97F1C7F8A6200FFF1E0 /* LaunchScreen.storyboard */,
+				D629E97D1C7F8A6200FFF1E0 /* Assets.xcassets */,
 				D629E9821C7F8A6200FFF1E0 /* Info.plist */,
+				D629E97A1C7F8A6200FFF1E0 /* Main.storyboard */,
 				B2CEF16B1C8E5A2E0032DE11 /* WelcomeViewController.swift */,
 				B282590F1C8E5EEB00E21110 /* CreateAccountController.swift */,
+				D629E9781C7F8A6200FFF1E0 /* ViewController.swift */,
+				39011A8E1C889BB4006BD4D4 /* AvailableTableViewCell.swift */,
+				39011A8A1C889325006BD4D4 /* AvailableFriendsTableViewController.swift */,
+				39011A8C1C8893C6006BD4D4 /* FoodPal.swift */,
+				B2419D3D1C8F791B00753B7A /* ContactTableViewCell.swift */,
+				B2419D3F1C8F7C9D00753B7A /* Contact.swift */,
+				B28259151C8E8F4F00E21110 /* ContactsTableViewController.swift */,
 				B28259111C8E63BB00E21110 /* Constants.swift */,
 				B28259131C8E64C100E21110 /* DataService.swift */,
-				B28259151C8E8F4F00E21110 /* ContactsTableViewController.swift */,
 			);
 			path = FoodPals;
 			sourceTree = "<group>";
