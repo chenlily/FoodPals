@@ -6,6 +6,8 @@ use_frameworks!
 target 'FoodPals' do
 
 pod ’Firebase’, ‘>=2.5.0’
+pod 'ChameleonFramework/Swift'
+pod 'IQKeyboardManagerSwift'
 
 end
 

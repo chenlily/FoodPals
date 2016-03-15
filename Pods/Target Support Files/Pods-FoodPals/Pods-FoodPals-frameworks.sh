@@ -84,8 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-FoodPals/ChameleonFramework.framework"
   install_framework "Pods-FoodPals/Firebase.framework"
+  install_framework "Pods-FoodPals/IQKeyboardManagerSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-FoodPals/ChameleonFramework.framework"
   install_framework "Pods-FoodPals/Firebase.framework"
+  install_framework "Pods-FoodPals/IQKeyboardManagerSwift.framework"
 fi

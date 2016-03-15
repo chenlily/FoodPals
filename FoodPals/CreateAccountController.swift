@@ -17,6 +17,7 @@ class CreateAccountController: UIViewController{
     @IBOutlet weak var emailEntry: UITextField!
     @IBOutlet weak var passwordEntry: UITextField!
     @IBOutlet weak var confirmPassEntry: UITextField!
+    @IBOutlet weak var createAcct: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,33 @@ class CreateAccountController: UIViewController{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
+        createAcct.backgroundColor = UIColor.flatSkyBlueColor()
+        //self.view.sendSubviewToBack(bgColor)
+        
+        var myTextField = nameEntry
+        var paddingView = UIView(frame: CGRectMake(0, 0, 15, self.nameEntry.frame.height))
+        myTextField.leftView = paddingView
+        myTextField.leftViewMode = UITextFieldViewMode.Always
+        
+        myTextField = phoneNumberEntry
+        paddingView = UIView(frame: CGRectMake(0, 0, 15, self.phoneNumberEntry.frame.height))
+        myTextField.leftView = paddingView
+        myTextField.leftViewMode = UITextFieldViewMode.Always
+        
+        myTextField = emailEntry
+        paddingView = UIView(frame: CGRectMake(0, 0, 15, self.emailEntry.frame.height))
+        myTextField.leftView = paddingView
+        myTextField.leftViewMode = UITextFieldViewMode.Always
+        
+        myTextField = passwordEntry
+        paddingView = UIView(frame: CGRectMake(0, 0, 15, self.passwordEntry.frame.height))
+        myTextField.leftView = paddingView
+        myTextField.leftViewMode = UITextFieldViewMode.Always
+        
+        myTextField = confirmPassEntry
+        paddingView = UIView(frame: CGRectMake(0, 0, 15, self.confirmPassEntry.frame.height))
+        myTextField.leftView = paddingView
+        myTextField.leftViewMode = UITextFieldViewMode.Always
     }
 
     
@@ -96,7 +124,7 @@ class CreateAccountController: UIViewController{
         // Called upon signup error to let the user know signup didn't work.
     
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
     }

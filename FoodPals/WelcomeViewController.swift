@@ -9,16 +9,28 @@
 import Foundation
 import UIKit
 import Firebase
+import ChameleonFramework
 
 class WelcomeViewController: UIViewController{
     
     @IBOutlet weak var emailEntry: UITextField!
     @IBOutlet weak var passwordEntry: UITextField!
+    @IBOutlet weak var createNewAcct: UIButton!
+    @IBOutlet weak var logIn: UIButton!
     
     override func viewDidLoad() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
+        logIn.backgroundColor = UIColor.flatSkyBlueColor()
+        
+        var paddingView = UIView(frame: CGRectMake(0, 0, 15, self.emailEntry.frame.height))
+        emailEntry.leftView = paddingView
+        emailEntry.leftViewMode = UITextFieldViewMode.Always
+        
+        paddingView = UIView(frame: CGRectMake(0, 0, 15, self.passwordEntry.frame.height))
+        passwordEntry.leftView = paddingView
+        passwordEntry.leftViewMode = UITextFieldViewMode.Always
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -63,7 +75,7 @@ class WelcomeViewController: UIViewController{
     
     func loginErrorAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
     }

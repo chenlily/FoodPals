@@ -82,24 +82,6 @@ class ContactsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        
-//        // Table view cells are reused and should be dequeued using a cell identifier
-//        let cellIdentifier = "ContactTableViewCell"
-//        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ContactTableViewCell
-//        
-//        // Fetches the appropriate FoodPal for the data source layout
-//        let contact = contacts[indexPath.row]
-//        
-//        cell.NameText.text = contact.name
-//        cell.EmailText.text = contact.email
-//        
-//        if indexPath.row % 2 == 1 {
-//            cell.backgroundColor = UIColor(red: 249/255, green: 250/255, blue: 250/255, alpha: 1.0)
-//        } else {
-//            cell.backgroundColor = UIColor.whiteColor();
-//        }
-//        
-//        return cell
         
         let cellIdentifier = "ContactTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ContactTableViewCell
@@ -115,6 +97,8 @@ class ContactsTableViewController: UITableViewController {
         } else {
             cell.backgroundColor = UIColor.whiteColor();
         }
+        
+        //cell.imageView!.image = UIImage(named: "plus")
         
         return cell
         
