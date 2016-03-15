@@ -120,4 +120,20 @@ class ContactsTableViewController: UITableViewController {
         
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ContactTableViewCell
+        //cell.addImage.image = UIImage(named: "plus")
+        if cell.selected
+        {
+            cell.selected = false
+            if cell.accessoryType == UITableViewCellAccessoryType.None
+            {
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.None
+            }
+        }
+        print("you selected this row, adding this contact")
+    }
+    
 }

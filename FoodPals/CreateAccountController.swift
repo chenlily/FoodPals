@@ -78,6 +78,18 @@ class CreateAccountController: UIViewController{
             signupErrorAlert("Oops!", message: "Don't forget to enter your email, password, phone number, and name.")
         }
         
+        
+        //THIS IS SHIT CODE
+//        DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { error, authData in
+//            
+//            // Be sure the correct uid is stored
+//            NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+//                NSUserDefaults.standardUserDefaults().synchronize()
+//            // Enter the app!
+//            self.performSegueWithIdentifier("NewUserAddFriends", sender: nil)
+//        })
+        ////////////
+        
     }
     
     func signupErrorAlert(title: String, message: String) {

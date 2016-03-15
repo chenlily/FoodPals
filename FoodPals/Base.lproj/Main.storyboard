@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwz-xU-VQx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwz-xU-VQx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qPf-oh-qPg">
-                                <rect key="frame" x="30" y="179" width="540" height="380"/>
+                                <rect key="frame" x="30" y="179" width="540" height="381"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csB-Kr-oKJ">
                                         <rect key="frame" x="213" y="0.0" width="115" height="21"/>
@@ -75,7 +75,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="150" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="tNr-pa-HfK">
-                                        <rect key="frame" x="110" y="191" width="320" height="150"/>
+                                        <rect key="frame" x="110" y="192" width="320" height="150"/>
                                         <date key="date" timeIntervalSinceReferenceDate="478122227.25836003">
                                             <!--2016-02-25 19:43:47 +0000-->
                                         </date>
@@ -84,7 +84,7 @@
                                         </connections>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgo-My-up0">
-                                        <rect key="frame" x="192" y="341" width="156" height="39"/>
+                                        <rect key="frame" x="192" y="342" width="156" height="39"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="23"/>
                                         <state key="normal" title="Find FoodPals">
                                             <color key="titleColor" red="0.14652723509999999" green="0.65411340969999998" blue="0.88997395830000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -155,7 +155,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aC3-Gc-skt" id="A0h-Zs-N9P">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHe-zq-XPN">
@@ -273,6 +273,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccount:" destination="A4N-Dn-xVV" eventType="touchUpInside" id="rs8-fY-pkd"/>
+                                    <segue destination="Wwz-xU-VQx" kind="show" identifier="NewUserAddFriends" id="7ii-7N-kaW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8i-aB-66b">
@@ -346,7 +347,6 @@
                         <outlet property="nameEntry" destination="mOV-c2-a5q" id="gwG-iZ-fJh"/>
                         <outlet property="passwordEntry" destination="yNC-Tw-n5b" id="aWI-RT-3Pu"/>
                         <outlet property="phoneNumberEntry" destination="Xeg-V3-YhX" id="qro-Me-2FD"/>
-                        <segue destination="tf7-rH-6lF" kind="show" identifier="NewUserAddFriends" id="ZeJ-Vq-eOx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2Q-HG-Utk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -366,20 +366,24 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DYh-gC-rck" id="r2t-0b-SeT">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="39.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlv-73-X5U">
-                                            <rect key="frame" x="8" y="9" width="505" height="21"/>
+                                            <rect key="frame" x="8" y="9" width="462" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ae-4Y-7yy">
+                                            <rect key="frame" x="504" y="0.0" width="56" height="44"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="ContactTableViewCell"/>
                                 <connections>
                                     <outlet property="NameText" destination="vlv-73-X5U" id="sR0-vY-45t"/>
+                                    <outlet property="addImage" destination="6ae-4Y-7yy" id="TCe-hJ-7fO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -399,7 +403,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQX-6o-WG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4gq-eb-OlE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1816" y="1354"/>
+            <point key="canvasLocation" x="1809" y="1354"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Qqi-B3-nPu">
@@ -543,8 +547,5 @@
     <resources>
         <image name="Logo-square-1" width="626" height="626"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ZeJ-Vq-eOx"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.14652723509999999" green="0.65411340969999998" blue="0.88997395830000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
