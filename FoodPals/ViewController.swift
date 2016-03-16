@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var welcomeMessage: UILabel!
     // This is the link that data will be sent to
     let ref = Firebase(url: "https://incandescent-torch-9100.firebaseIO.com/")
+    let userInfoRef = Firebase(url: "https://incandescent-torch-9100.firebaseIO.com/user_information")
     
     // Dummy data
     let yunhan = ["from": "12:00 PM", "to": "1:00 PM"]
@@ -28,6 +29,9 @@ class ViewController: UIViewController {
     
     // The current FoodPals user
     var user = ["from": "", "to": ""]
+    
+    var from = ""
+    var to = ""
     
     
     override func viewDidLoad() {
@@ -68,6 +72,29 @@ class ViewController: UIViewController {
         let userAvailabilityRef = ref.childByAppendingPath("user_availability")
         let availableUsers = ["yunhan": yunhan, "kaylee": kaylee, "lily": user]
         userAvailabilityRef.setValue(availableUsers)
+        
+        let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+        print("User ID: ", userID)
+        
+        var phoneNumber = ""
+        let ref2 = Firebase(url: "https://incandescent-torch-9100.firebaseio.com/users/" + userID + "/phoneNumber")
+        ref2.observeEventType(.Value, withBlock: { snapshot in
+            //phoneNumber = (snapshot.value as? String)!
+            print("Snapshot: ", snapshot.value)
+            phoneNumber = snapshot.value as! String
+            print("Phone number: ", phoneNumber)
+            
+            let userToUpdate = self.userInfoRef.childByAppendingPath(phoneNumber)
+            print(userToUpdate)
+            let fromUpdate = ["from": self.from]
+            let toUpdate = ["to": self.to]
+            userToUpdate.updateChildValues(fromUpdate)
+            userToUpdate.updateChildValues(toUpdate)
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
     }
     @IBAction func availSwitchPressedAction(sender: UISwitch) {
     }
@@ -101,7 +128,9 @@ class ViewController: UIViewController {
         print(strTime)
         
         // K: Update from time for current user
-        user.updateValue(strTime, forKey: "from")
+        // user.updateValue(strTime, forKey: "from")
+        
+        from = strTime
     }
     
     func toDatePickerChanged(toDatePicker:UIDatePicker){
@@ -116,6 +145,8 @@ class ViewController: UIViewController {
         
         // K: Update to time for current user
         user.updateValue(strTime, forKey: "to")
+        
+        to = strTime
     }
     @IBAction func logout(sender: AnyObject) {
         

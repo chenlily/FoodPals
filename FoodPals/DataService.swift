@@ -41,10 +41,10 @@ class DataService {
         USER_REF.childByAppendingPath(uid).setValue(user)
         
         // Add entry inside the firebase table for user information -- works but needs tweaking
-        let user_mod: [String: String] = ["name": user["name"]!, "to": "placeholder", "from": "placeholder"]
+        let user_mod: [String: String] = ["name": user["name"]!, "to": "", "from": ""]
         USER_INFO_REF.childByAppendingPath(user["phoneNumber"]).setValue(user_mod)
         
-        addAvailability(uid, from: "11 AM", to: "12 PM")
+        // addAvailability(uid, from: "11 AM", to: "12 PM")
     }
     
     func addAvailability(uid: String, from: String, to: String) {
