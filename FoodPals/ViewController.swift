@@ -127,9 +127,6 @@ class ViewController: UIViewController {
         let strTime = timeFormatter.stringFromDate(fromDatePicker.date)
         print(strTime)
         
-        // K: Update from time for current user
-        // user.updateValue(strTime, forKey: "from")
-        
         from = strTime
     }
     
@@ -142,9 +139,6 @@ class ViewController: UIViewController {
         
         let strTime = timeFormatter.stringFromDate(toDatePicker.date)
         print(strTime)
-        
-        // K: Update to time for current user
-        user.updateValue(strTime, forKey: "to")
         
         to = strTime
     }
@@ -171,7 +165,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func doneButton(unwindSegue: UIStoryboardSegue) {
-        print("Am i going in here")
+        print("Pressed Done")
     }
     @IBAction func doneAddContacts(unwindSegue: UIStoryboardSegue) {
     }
