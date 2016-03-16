@@ -89,7 +89,8 @@ class CreateAccountController: UIViewController{
                         err, authData in
                         
                         let user = ["provider": authData.provider!, "email": email!, "name": name!, "phoneNumber": phoneNumber!]
-                        
+//
+//                        let user = ["provider": authData.provider!, "email": email!, "name": name!, "phoneNumber": phoneNumber!]
                         // Seal the deal in DataService.swift.
                         DataService.dataService.createNewAccount(authData.uid, user: user)
                     })
