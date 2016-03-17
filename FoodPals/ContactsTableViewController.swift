@@ -41,9 +41,10 @@ class ContactsTableViewController: UITableViewController {
                     temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                     temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
                     parsedNumbers.append(temp)
+                    
                 }
                 
-                
+                //getContacts(parsedNumbers)
                 
                 }, withCancelBlock: { error in
                     print(error.description)
@@ -52,7 +53,7 @@ class ContactsTableViewController: UITableViewController {
                 print(error.description)
         })
         
-        getContacts()
+        
 
     }
     
@@ -82,8 +83,18 @@ class ContactsTableViewController: UITableViewController {
             let containerId =  store.defaultContainerIdentifier()
             let predicate: NSPredicate = CNContact.predicateForContactsInContainerWithIdentifier(containerId)
             cncontacts = try store.unifiedContactsMatchingPredicate(predicate, keysToFetch: keysToFetch)
+            var cncontacts2 = [CNContact]()
 
             print("initial list ", cncontacts.count)
+            for contact in cncontacts {
+                let contactNumber = contact.phoneNumbers[0].value as! CNPhoneNumber
+                let cellNumber = sanitize(contactNumber.stringValue)
+                if friendList.contains(cellNumber) {
+                    cncontacts2.insert(contact, atIndex: 0)
+                }
+            }
+            cncontacts = cncontacts2
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })
