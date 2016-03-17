@@ -22,6 +22,10 @@ class AvailableFriendsTableViewController: UITableViewController {
         loadSampleAvailableFriends()
     }
     
+    func findAvailFriends(){
+        
+    }
+    
     func loadSampleAvailableFriends() {
         let pal1 = FoodPal(first_name: "Kaylee", last_name: "Schonsheck", from: "11:30 AM", to: "12:30 PM")!
         let pal2 = FoodPal(first_name: "Yunhan", last_name: "Wei", from: "12:00 PM", to: "2:00 PM")!

@@ -47,23 +47,11 @@ class ContactsTableViewController: UITableViewController {
                     parsedNumbers.insert(temp)
                     
                 }
-                //print(self.cncontacts)
-                /*
-                var cncontacts2 = [CNContact]()
-                for contact in self.cncontacts {
-                    let contactNumber = contact.phoneNumbers[0].value as! CNPhoneNumber
-                    let cellNumber = self.sanitize(contactNumber.stringValue)
-                    if parsedNumbers.contains(cellNumber) {
-                        }
-                    else{
-                        cncontacts2.insert(contact, atIndex: 0)
-                    }
-                }
-                self.cncontacts = cncontacts2
-                self.tableView.reloadData()
-                */
+            
+                //warning!
+                //thisonly works if the name does not have whitespace RIP
+                //warning!
                 
-                //this is too hard we'll do it later (only display peope who are friends in the contact list
                 ref2.observeEventType(.Value, withBlock: { snapshot in
                     var appUserToParse = "\(snapshot.value)"
                     var appUserToParseArray = appUserToParse.characters.split{$0 == " "}.map(String.init)
