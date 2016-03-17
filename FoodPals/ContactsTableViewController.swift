@@ -17,12 +17,43 @@ class ContactsTableViewController: UITableViewController {
     var contacts = [Contact]()
     var cncontacts = [CNContact]()
     var numbersToAdd = Set<String>()
+    var friendList = Set<String>()
+    let dataService = DataService()
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        loadSampleContact()
+
+        let uid = ( NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+        let ref = Firebase(url: "\(BASE_URL)/users/" + uid + "/phoneNumber")
+        var phoneNumber = String()
+        ref.observeEventType(.Value, withBlock: { snapshot in
+            print(phoneNumber)
+            var friendList = Set<String>()
+            let ref = Firebase(url: "\(BASE_URL)/user_information/" + phoneNumber + "/friends")
+            ref.observeEventType(.Value, withBlock: { snapshot in
+                var numbersToParse = "\(snapshot.value)"
+                var numbersToParseArray = numbersToParse.characters.split{$0 == " "}.map(String.init)
+                var parsedNumbers = [String]() //whats actually useful
+                numbersToParseArray.removeFirst(3)
+                for var i = 0; i<numbersToParseArray.count; i+=3 {
+                    var temp = numbersToParseArray[i]
+                    temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
+                    temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                    temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
+                    parsedNumbers.append(temp)
+                }
+                
+                
+                
+                }, withCancelBlock: { error in
+                    print(error.description)
+            })
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
         getContacts()
-        //addFriend("98765") //for debug
+
     }
     
     ////////////////grab valid contacts/////////////////////////////////////////////////////////////
@@ -93,26 +124,15 @@ class ContactsTableViewController: UITableViewController {
         let formatter = CNContactFormatter()
         
         cell.NameText?.text = formatter.stringFromContact(contact)
-        //cell.NumberText?.text = cont act.phoneNumbers.first?.value as? String
-        //cell.NumberText?.text = contact.phoneNumbers[0].value as? String
-        //print(contact.phoneNumbers[0].value as? String)
         let contactNumber = contact.phoneNumbers[0].value as! CNPhoneNumber
-        //print(contactNumber.stringValue)
-        //print("sanitized: " + sanitize(contactNumber.stringValue))
+
         cell.NumberText = sanitize(contactNumber.stringValue)
-        //print(cell.NumberText)
-        
-        //print((contact.phoneNumbers[0].value as! CNPhoneNumber))
-        //cell.EmailText?.text = contact.emailAddresses.first?.value as? String
-        
+
         if indexPath.row % 2 == 1 {
             cell.backgroundColor = UIColor(red: 249/255, green: 250/255, blue: 250/255, alpha: 1.0)
         } else {
             cell.backgroundColor = UIColor.whiteColor();
         }
-        
-        //cell.imageView!.image = UIImage(named: "plus")
-        
         return cell
         
     }
@@ -160,11 +180,9 @@ class ContactsTableViewController: UITableViewController {
             phoneNumber = snapshot.value as! String
             
             let userToUpdate = userInfoRef.childByAppendingPath(phoneNumber)
-            //let friendUpdate = ["friend": friendNumber]
             let friendsRef = userToUpdate.childByAppendingPath("friends")
             let friends1Ref = friendsRef.childByAutoId()
             friends1Ref.setValue(friendNumber)
-            //friendsRef.childByAppendingPath(friendNumber)
             
             }, withCancelBlock: { error in
                 print(error.description)
