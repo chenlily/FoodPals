@@ -11,19 +11,29 @@ import UIKit
 class AvailableFriendsTableViewController: UITableViewController {
     
     // MARK: Properties
-    
+    var userTo = String()
+    var userFrom = String()
     var foodPals = [FoodPal]()
     let messageComposer = MessageComposer()
+    
+    var aFrom = "11:00 AM"
+    var aTo = "12:00 PM"
+    
+    var bFrom = "2:30PM "
+    var bTo = "4:00 PM"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("touch me")
+        print(userTo)
+        print(userFrom)
         // Load the sample friend data
         loadSampleAvailableFriends()
     }
     
     func findAvailFriends(){
-        
+        // obtain user's phone number 
+            
     }
     
     func loadSampleAvailableFriends() {

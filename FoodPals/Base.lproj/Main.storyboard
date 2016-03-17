@@ -91,7 +91,7 @@
                                         </state>
                                         <connections>
                                             <action selector="findPals:" destination="BYZ-38-t0r" eventType="touchDown" id="elT-FJ-qR5"/>
-                                            <segue destination="Knx-Iu-gvA" kind="show" id="rpY-mi-vhh"/>
+                                            <segue destination="Knx-Iu-gvA" kind="show" identifier="FindFoodPalSegue" id="rpY-mi-vhh"/>
                                         </connections>
                                     </button>
                                 </subviews>

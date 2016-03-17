@@ -85,6 +85,15 @@ class ViewController: UIViewController {
         })
         
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "FindFoodPalSegue"{
+            var navCon = segue.destinationViewController as! UINavigationController
+            let nextScene = navCon.viewControllers.first as! AvailableFriendsTableViewController
+            nextScene.userTo = self.to
+            nextScene.userFrom = self.from
+        }
+    }
+    
     @IBAction func availSwitchPressedAction(sender: UISwitch) {
     }
     
