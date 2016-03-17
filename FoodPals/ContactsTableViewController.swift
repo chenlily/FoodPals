@@ -182,6 +182,10 @@ class ContactsTableViewController: UITableViewController {
         } else {
             cell.backgroundColor = UIColor.whiteColor();
         }
+        
+        // deselect all cells 
+        cell.selected = false
+        cell.accessoryType = UITableViewCellAccessoryType.None
         return cell
         
     }
@@ -244,11 +248,12 @@ class ContactsTableViewController: UITableViewController {
         for friendNumber in numbersToAdd{
             addFriend(friendNumber)
         }
-        
+        numbersToAdd.removeAll()
         let alertController = UIAlertController(title:"Friends Added!", message:
             "Please click done", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title:"Dismiss", style: UIAlertActionStyle.Default,handler:nil))
         self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     func sanitize(dirty: String) -> String {
