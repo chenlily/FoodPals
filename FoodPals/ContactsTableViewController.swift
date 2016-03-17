@@ -19,32 +19,60 @@ class ContactsTableViewController: UITableViewController {
     var numbersToAdd = Set<String>()
     var friendList = Set<String>()
     let dataService = DataService()
+    var appUsers = Set<String>()
     
     override func viewDidLoad(){
         super.viewDidLoad()
 
+        getContacts()
         let uid = ( NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
         let ref = Firebase(url: "\(BASE_URL)/users/" + uid + "/phoneNumber")
+        let ref2 = Firebase(url: "\(BASE_URL)/user_information")
         var phoneNumber = String()
         ref.observeEventType(.Value, withBlock: { snapshot in
+            phoneNumber = "\(snapshot.value)"
             print(phoneNumber)
             var friendList = Set<String>()
             let ref = Firebase(url: "\(BASE_URL)/user_information/" + phoneNumber + "/friends")
             ref.observeEventType(.Value, withBlock: { snapshot in
                 var numbersToParse = "\(snapshot.value)"
                 var numbersToParseArray = numbersToParse.characters.split{$0 == " "}.map(String.init)
-                var parsedNumbers = [String]() //whats actually useful
+                var parsedNumbers = Set<String>() //whats actually useful
                 numbersToParseArray.removeFirst(3)
                 for var i = 0; i<numbersToParseArray.count; i+=3 {
                     var temp = numbersToParseArray[i]
                     temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
                     temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                     temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
-                    parsedNumbers.append(temp)
+                    parsedNumbers.insert(temp)
                     
                 }
+                //print(self.cncontacts)
+                var cncontacts2 = [CNContact]()
+                for contact in self.cncontacts {
+                    let contactNumber = contact.phoneNumbers[0].value as! CNPhoneNumber
+                    let cellNumber = self.sanitize(contactNumber.stringValue)
+                    if parsedNumbers.contains(cellNumber) {
+                        }
+                    else{
+                        cncontacts2.insert(contact, atIndex: 0)
+                    }
+                }
+                self.cncontacts = cncontacts2
+                print(self.cncontacts)
+                self.tableView.reloadData()
                 
-                //getContacts(parsedNumbers)
+                //this is too hard we'll do it later (only display peope who are friends in the contact list
+//                ref2.observeEventType(.ChildAdded, withBlock: { snapshot in
+//                    var appUser = "\(snapshot.key)"
+//                    print(appUser)
+//                    self.appUsers.insert(appUser)
+//                    print(self.appUsers)
+//                    }, withCancelBlock: { error in
+//                        print(error.description)
+//                })
+//                print(self.appUsers)
+                
                 
                 }, withCancelBlock: { error in
                     print(error.description)
@@ -56,6 +84,7 @@ class ContactsTableViewController: UITableViewController {
         
 
     }
+    
     
     ////////////////grab valid contacts/////////////////////////////////////////////////////////////
 
@@ -83,8 +112,8 @@ class ContactsTableViewController: UITableViewController {
             let containerId =  store.defaultContainerIdentifier()
             let predicate: NSPredicate = CNContact.predicateForContactsInContainerWithIdentifier(containerId)
             cncontacts = try store.unifiedContactsMatchingPredicate(predicate, keysToFetch: keysToFetch)
-            var cncontacts2 = [CNContact]()
-
+            //var cncontacts2 = [CNContact]()
+            /*
             print("initial list ", cncontacts.count)
             for contact in cncontacts {
                 let contactNumber = contact.phoneNumbers[0].value as! CNPhoneNumber
@@ -93,7 +122,7 @@ class ContactsTableViewController: UITableViewController {
                     cncontacts2.insert(contact, atIndex: 0)
                 }
             }
-            cncontacts = cncontacts2
+            cncontacts = cncontacts2 */
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
