@@ -47,45 +47,11 @@ class DataService {
         // addAvailability(uid, from: "11 AM", to: "12 PM")
     }
     
-    func addAvailability(uid: String, from: String, to: String) {
-        //update the user_information ref to have 1 child called from and 1 child called to
-        
-        
-        // set up the ref
-        //obtain phone number
-        var phoneNumber = ""
-        let ref = Firebase(url: "\(BASE_URL)/users/" + uid + "/phoneNumber")
-        ref.observeEventType(.Value, withBlock: { snapshot in
-                //phoneNumber = (snapshot.value as? String)!
-                phoneNumber = "\(snapshot.value)"
-            }, withCancelBlock: { error in
-                print(error.description)
-            })
-        
-        let info_ref = Firebase(url: "\(BASE_URL)/user_information/" + phoneNumber+"/")
-        info_ref.updateChildValues([
-            "to": to,
-            "from": from
-        ])
-        //use phoneNumber to write to user_information table
-        //let avail: [String: String] = ["to": to, "from": from]
-        //USER_INFO_REF.childByAppendingPath(phoneNumber).setValue(avail)
-//        let info_ref = Firebase(url: "\(BASE_URL)/user_information/" + phoneNumber+"/")
+//    func getFriends(phoneNumber: String)->Set<String>{
+//        var friendList = Set<String>()
+//        let ref = Firebase(url: "\(BASE_URL)/user_information/" + phoneNumber)
 //        
-//        print(from)
-//        print(to)
-        //USER_INFO_REF.childByAppendingPath(phoneNumber + "/to").setValue(to)
-        /*
-        info_ref.observeEventType(.Value, withBlock: { snapshot in
-            //phoneNumber = (snapshot.value as? String)!
-            print("\(snapshot.value)")
-            }, withCancelBlock: { error in
-                print(error.description)
-        })*/
-
-        //info_ref.setValue(<#T##value: AnyObject!##AnyObject!#>)
-        //let avail: [String: String] = ["to": to, "from": from]
-        //info_ref.childByAppendingPath("to").setValue(to)
-        //info_ref.childByAppendingPath("from").setValue(from)
-    }
+//        return friendList
+//    }
+    
 }

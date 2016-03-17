@@ -292,7 +292,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccount:" destination="A4N-Dn-xVV" eventType="touchUpInside" id="rs8-fY-pkd"/>
-                                    <segue destination="Wwz-xU-VQx" kind="show" identifier="NewUserAddFriends" id="7ii-7N-kaW"/>
+                                    <segue destination="Iof-gD-wsw" kind="unwind" unwindAction="doneCreateAccount:" id="9Oe-Ks-tQW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8i-aB-66b">
@@ -373,6 +373,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2Q-HG-Utk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Iof-gD-wsw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="267" y="1364"/>
         </scene>
@@ -426,10 +427,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Contacts as Friends" id="pMb-3B-oTw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hEG-N0-iNb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="QaY-fr-cUf">
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <connections>
+                                <segue destination="4gq-eb-OlE" kind="unwind" unwindAction="doneButton:" id="zDz-1p-7ya"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="hEG-N0-iNb">
                             <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="4gq-eb-OlE" kind="unwind" unwindAction="doneAddContacts:" id="9cH-d9-oxc"/>
+                                <action selector="doneAddFriends:" destination="rg1-LH-Dc4" id="8ST-ug-9gD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -20,16 +20,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondStackView: UIStackView!
     @IBOutlet weak var welcomeMessage: UILabel!
     // This is the link that data will be sent to
-    let ref = Firebase(url: "https://incandescent-torch-9100.firebaseIO.com/")
     let userInfoRef = Firebase(url: "https://incandescent-torch-9100.firebaseIO.com/user_information")
     
-    // Dummy data
-    let yunhan = ["from": "12:00 PM", "to": "1:00 PM"]
-    let kaylee = ["from": "11:00 AM", "to": "12:00 PM"]
-    
-    // The current FoodPals user
-    var user = ["from": "", "to": ""]
-    
+    // For the current FoodPals user
     var from = ""
     var to = ""
     
@@ -68,10 +61,6 @@ class ViewController: UIViewController {
         print("Pressed Find FoodPals")
         fromDatePickerChanged(fromDatePicker)
         toDatePickerChanged(toDatePicker)
-        // K: When you click "Find FoodPals," data will be sent to Firebase
-        let userAvailabilityRef = ref.childByAppendingPath("user_availability")
-        let availableUsers = ["yunhan": yunhan, "kaylee": kaylee, "lily": user]
-        userAvailabilityRef.setValue(availableUsers)
         
         let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
         print("User ID: ", userID)
@@ -167,8 +156,9 @@ class ViewController: UIViewController {
     @IBAction func doneButton(unwindSegue: UIStoryboardSegue) {
         print("Pressed Done")
     }
-    @IBAction func doneAddContacts(unwindSegue: UIStoryboardSegue) {
-    }
+//    @IBAction func doneAddContacts(unwindSegue: UIStoryboardSegue) {
+//        print("big penis")
+//    }
     
 }
 

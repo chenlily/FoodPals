@@ -10,7 +10,7 @@ import UIKit
 
 class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var NameText: UILabel!
-    @IBOutlet weak var EmailText: UILabel! //debug purposes
+    var NumberText: String = ""//debug purposes
     @IBOutlet weak var addImage: UIImageView!
 
     override func awakeFromNib() {
@@ -27,3 +27,4 @@ class ContactTableViewCell: UITableViewCell {
     }
 
 }
+
