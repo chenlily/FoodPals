@@ -27,7 +27,7 @@ class ContactsTableViewController: UITableViewController {
         getContacts()
         let uid = ( NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
         let ref = Firebase(url: "\(BASE_URL)/users/" + uid + "/phoneNumber")
-        let ref2 = Firebase(url: "\(BASE_URL)/user_information")
+        let ref2 = Firebase(url: "\(BASE_URL)/users")
         var phoneNumber = String()
         ref.observeEventType(.Value, withBlock: { snapshot in
             phoneNumber = "\(snapshot.value)"
@@ -37,7 +37,7 @@ class ContactsTableViewController: UITableViewController {
             ref.observeEventType(.Value, withBlock: { snapshot in
                 var numbersToParse = "\(snapshot.value)"
                 var numbersToParseArray = numbersToParse.characters.split{$0 == " "}.map(String.init)
-                var parsedNumbers = Set<String>() //whats actually useful
+                var parsedNumbers = Set<String>() //current user friends
                 numbersToParseArray.removeFirst(3)
                 for var i = 0; i<numbersToParseArray.count; i+=3 {
                     var temp = numbersToParseArray[i]
@@ -48,6 +48,7 @@ class ContactsTableViewController: UITableViewController {
                     
                 }
                 //print(self.cncontacts)
+                /*
                 var cncontacts2 = [CNContact]()
                 for contact in self.cncontacts {
                     let contactNumber = contact.phoneNumbers[0].value as! CNPhoneNumber
@@ -59,19 +60,39 @@ class ContactsTableViewController: UITableViewController {
                     }
                 }
                 self.cncontacts = cncontacts2
-                print(self.cncontacts)
                 self.tableView.reloadData()
+                */
                 
                 //this is too hard we'll do it later (only display peope who are friends in the contact list
-//                ref2.observeEventType(.ChildAdded, withBlock: { snapshot in
-//                    var appUser = "\(snapshot.key)"
-//                    print(appUser)
-//                    self.appUsers.insert(appUser)
-//                    print(self.appUsers)
-//                    }, withCancelBlock: { error in
-//                        print(error.description)
-//                })
-//                print(self.appUsers)
+                ref2.observeEventType(.Value, withBlock: { snapshot in
+                    var appUserToParse = "\(snapshot.value)"
+                    var appUserToParseArray = appUserToParse.characters.split{$0 == " "}.map(String.init)
+                    var parsedAppUser = Set<String>() //everyone who uses the app
+                    //print (appUserToParseArray)
+                    appUserToParseArray.removeFirst(12)
+                    for var i = 0; i<appUserToParseArray.count; i+=16 {
+                        var temp = appUserToParseArray[i]
+                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
+                        parsedAppUser.insert(temp)
+                    }
+                    
+                    // in contacts, in app users, but not in friends
+                    var cncontacts2 = [CNContact]()
+                    for contact in self.cncontacts {
+                        let contactNumber = contact.phoneNumbers[0].value as! CNPhoneNumber
+                        let cellNumber = self.sanitize(contactNumber.stringValue)
+                        if !parsedNumbers.contains(cellNumber) &&  parsedAppUser.contains(cellNumber){
+                            cncontacts2.insert(contact, atIndex: 0)
+                        }
+                    }
+                    self.cncontacts = cncontacts2
+                    self.tableView.reloadData()
+                    
+                    
+                    }, withCancelBlock: { error in
+                        print(error.description)
+                })
                 
                 
                 }, withCancelBlock: { error in
