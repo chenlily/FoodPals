@@ -19,21 +19,48 @@ class AvailableFriendsTableViewController: UITableViewController {
     var aFrom = "11:00 AM"
     var aTo = "12:00 PM"
     
-    var bFrom = "2:30PM "
+    var bFrom = "2:30 PM"
     var bTo = "4:00 PM"
 
+    var fromArr = ["11:00 AM", "2:30 PM"]
+    var toArray = ["12:00 PM","4:00 PM"]
     override func viewDidLoad() {
         super.viewDidLoad()
         print("touch me")
-        print(userTo)
-        print(userFrom)
+        findAvailFriends()
         // Load the sample friend data
         loadSampleAvailableFriends()
     }
     
     func findAvailFriends(){
         // obtain user's phone number 
-            
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+        dateFormatter.dateFormat = "hh:mm a"
+        //dateFormatter converts it to the correct time
+        
+        var userFromNS = dateFormatter.dateFromString(userFrom)
+        var userToNS = dateFormatter.dateFromString(userTo)
+        
+        //print(userFromNS!.isLessThanDate(userToNS!))
+        
+        for var i=0; i<fromArr.count; i++ {
+            // convert times 
+            var fr = dateFormatter.dateFromString(fromArr[i])
+            var to = dateFormatter.dateFromString(toArray[i])
+            if (fr!.isLessThanDate(userFromNS!) && to!.isGreaterThanDate(userFromNS!) ) {
+                // ADD EQUAL TO for all statements
+                // valid
+                print("valid1 " + String(i))
+            } else if (fr!.isLessThanDate(userToNS!) && to!.isGreaterThanDate(userToNS!))   {
+                print("valid2")
+            } else if fr!.isGreaterThanDate(userFromNS!) && to!.isLessThanDate(userToNS!) {
+                print("valid3")
+            } else {
+                print("invalid")
+            }
+        }
+        
     }
     
     func loadSampleAvailableFriends() {
