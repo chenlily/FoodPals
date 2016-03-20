@@ -38,14 +38,16 @@ class ContactsTableViewController: UITableViewController {
                 var numbersToParse = "\(snapshot.value)"
                 var numbersToParseArray = numbersToParse.characters.split{$0 == " "}.map(String.init)
                 var parsedNumbers = Set<String>() //current user friends
-                numbersToParseArray.removeFirst(3)
-                for var i = 0; i<numbersToParseArray.count; i+=3 {
-                    var temp = numbersToParseArray[i]
-                    temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
-                    temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-                    temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
-                    parsedNumbers.insert(temp)
+                if numbersToParseArray.count>3{
+                    numbersToParseArray.removeFirst(3)
+                    for var i = 0; i<numbersToParseArray.count; i+=3 {
+                        var temp = numbersToParseArray[i]
+                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
+                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
+                        parsedNumbers.insert(temp)
                     
+                    }
                 }
             
                 //warning!

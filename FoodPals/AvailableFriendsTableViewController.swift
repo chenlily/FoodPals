@@ -45,16 +45,16 @@ class AvailableFriendsTableViewController: UITableViewController {
         //print(userFromNS!.isLessThanDate(userToNS!))
         
         for var i=0; i<fromArr.count; i++ {
-            // convert times 
+            // convert times
             var fr = dateFormatter.dateFromString(fromArr[i])
             var to = dateFormatter.dateFromString(toArray[i])
-            if (fr!.isLessThanDate(userFromNS!) && to!.isGreaterThanDate(userFromNS!) ) {
+            if (fr!.isLessThanDate(userFromNS!) || to!.isEqualToDate(userFromNS!)) && to!.isGreaterThanDate(userFromNS!)  {
                 // ADD EQUAL TO for all statements
                 // valid
                 print("valid1 " + String(i))
-            } else if (fr!.isLessThanDate(userToNS!) && to!.isGreaterThanDate(userToNS!))   {
+            } else if fr!.isLessThanDate(userToNS!) && (to!.isGreaterThanDate(userToNS!) || to!.isEqualToDate(userToNS!))   {
                 print("valid2")
-            } else if fr!.isGreaterThanDate(userFromNS!) && to!.isLessThanDate(userToNS!) {
+            } else if (fr!.isGreaterThanDate(userFromNS!) || fr!.isEqualToDate(userFromNS!)) && (to!.isLessThanDate(userToNS!) || to!.isEqualToDate(userToNS!)) {
                 print("valid3")
             } else {
                 print("invalid")
