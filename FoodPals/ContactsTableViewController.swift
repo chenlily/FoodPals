@@ -14,17 +14,21 @@ import Contacts
 
 class ContactsTableViewController: UITableViewController {
     
-    var contacts = [Contact]()
     var cncontacts = [CNContact]()
     var numbersToAdd = Set<String>()
     var friendList = Set<String>()
     let dataService = DataService()
     var appUsers = Set<String>()
+    var noContacts = false
     
     override func viewDidLoad(){
         super.viewDidLoad()
 
         getContacts()
+        
+        // Just a quick fix...
+        while (CNContactStore.authorizationStatusForEntityType(.Contacts) == .NotDetermined) {}
+        
         let uid = ( NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
         let ref = Firebase(url: "\(BASE_URL)/users/" + uid + "/phoneNumber")
         let ref2 = Firebase(url: "\(BASE_URL)/users")
@@ -32,10 +36,10 @@ class ContactsTableViewController: UITableViewController {
         ref.observeEventType(.Value, withBlock: { snapshot in
             phoneNumber = "\(snapshot.value)"
             print(phoneNumber)
-            var friendList = Set<String>()
+            //var friendList = Set<String>()
             let ref = Firebase(url: "\(BASE_URL)/user_information/" + phoneNumber + "/friends")
             ref.observeEventType(.Value, withBlock: { snapshot in
-                var numbersToParse = "\(snapshot.value)"
+                let numbersToParse = "\(snapshot.value)"
                 var numbersToParseArray = numbersToParse.characters.split{$0 == " "}.map(String.init)
                 var parsedNumbers = Set<String>() //current user friends
                 if numbersToParseArray.count>3{
@@ -46,16 +50,15 @@ class ContactsTableViewController: UITableViewController {
                         temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                         temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
                         parsedNumbers.insert(temp)
-                    
                     }
                 }
             
                 //warning!
-                //thisonly works if the name does not have whitespace RIP
+                //this only works if the name does not have whitespace RIP
                 //warning!
                 
                 ref2.observeEventType(.Value, withBlock: { snapshot in
-                    var appUserToParse = "\(snapshot.value)"
+                    let appUserToParse = "\(snapshot.value)"
                     var appUserToParseArray = appUserToParse.characters.split{$0 == " "}.map(String.init)
                     var parsedAppUser = Set<String>() //everyone who uses the app
                     //print (appUserToParseArray)
@@ -145,12 +148,6 @@ class ContactsTableViewController: UITableViewController {
     
     ////////////////actual code for the view controller//////////////////////////////////////////////
     
-    
-    func loadSampleContact(){
-        let contact1 = Contact(name: "Kayschonka", email:"kayshayshay@dinosaurs.com")!
-        contacts += [contact1]
-    }
-    
     func loadContactsAddress(){
         
     }
@@ -163,6 +160,17 @@ class ContactsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // One row per Contact (GO KAYLEE)
+//        print("Number of rows: ", cncontacts.count)
+//        if (cncontacts.count == 0) {
+//            print("No contacts to add ._.")
+//            self.noContacts = true
+//            let alertController = UIAlertController(title:"No contacts to add :(", message:
+//                "Please click done", preferredStyle: UIAlertControllerStyle.Alert)
+//            alertController.addAction(UIAlertAction(title:"Dismiss", style: UIAlertActionStyle.Default,handler:nil))
+//            self.presentViewController(alertController, animated: true, completion: nil)
+//        }
+//        noContacts = false
+        
         return cncontacts.count
     }
     

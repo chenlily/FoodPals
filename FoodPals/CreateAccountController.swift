@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import Contacts
 
 class CreateAccountController: UIViewController{
     
@@ -62,8 +63,14 @@ class CreateAccountController: UIViewController{
     
     @IBAction func createAccount(sender: AnyObject) {
         let name = nameEntry.text
-        let phoneNumber = phoneNumberEntry.text
+        var phoneNumber = phoneNumberEntry.text
         let email = emailEntry.text
+        
+        // Sanitize phone number real quick
+        let origString = phoneNumber
+        let stringArray = origString!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+        let newString = stringArray.joinWithSeparator("")
+        phoneNumber = newString
         
         if passwordEntry.text != confirmPassEntry.text {
             print("lol this guy messed up")
@@ -120,6 +127,7 @@ class CreateAccountController: UIViewController{
         ////////////
         
     }
+
     
     func signupErrorAlert(title: String, message: String) {
         // Called upon signup error to let the user know signup didn't work.

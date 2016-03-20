@@ -39,15 +39,15 @@ class AvailableFriendsTableViewController: UITableViewController {
         dateFormatter.dateFormat = "hh:mm a"
         //dateFormatter converts it to the correct time
         
-        var userFromNS = dateFormatter.dateFromString(userFrom)
-        var userToNS = dateFormatter.dateFromString(userTo)
+        let userFromNS = dateFormatter.dateFromString(userFrom)
+        let userToNS = dateFormatter.dateFromString(userTo)
         
         //print(userFromNS!.isLessThanDate(userToNS!))
         
         for var i=0; i<fromArr.count; i++ {
             // convert times
-            var fr = dateFormatter.dateFromString(fromArr[i])
-            var to = dateFormatter.dateFromString(toArray[i])
+            let fr = dateFormatter.dateFromString(fromArr[i])
+            let to = dateFormatter.dateFromString(toArray[i])
             if (fr!.isLessThanDate(userFromNS!) || to!.isEqualToDate(userFromNS!)) && to!.isGreaterThanDate(userFromNS!)  {
                 // ADD EQUAL TO for all statements
                 // valid
