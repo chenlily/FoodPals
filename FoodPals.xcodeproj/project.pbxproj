@@ -209,7 +209,7 @@
 				TargetAttributes = {
 					D629E9721C7F8A6200FFF1E0 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = Y6U34UWU9R;
+						DevelopmentTeam = R3362H67V3;
 					};
 					D629E9861C7F8A6200FFF1E0 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -456,7 +456,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodPals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.FoodPals;
+				PRODUCT_BUNDLE_IDENTIFIER = "Yunhan-Wei";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -471,7 +471,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodPals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.FoodPals;
+				PRODUCT_BUNDLE_IDENTIFIER = "Yunhan-Wei";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

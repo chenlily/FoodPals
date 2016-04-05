@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AvailableFriendsTableViewController: UITableViewController {
     
@@ -26,10 +27,11 @@ class AvailableFriendsTableViewController: UITableViewController {
     var toArray = ["12:00 PM","4:00 PM"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadSampleAvailableFriends()
         print("touch me")
         findAvailFriends()
         // Load the sample friend data
-        loadSampleAvailableFriends()
+        
     }
     
     func findAvailFriends(){
@@ -42,25 +44,117 @@ class AvailableFriendsTableViewController: UITableViewController {
         let userFromNS = dateFormatter.dateFromString(userFrom)
         let userToNS = dateFormatter.dateFromString(userTo)
         
+        
+        let uid = ( NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+        let ref = Firebase(url: "\(BASE_URL)/users/" + uid + "/phoneNumber")
+        var phoneNumber = String()
+        ref.observeEventType(.Value, withBlock: { snapshot in
+            phoneNumber = ("\(snapshot.value)")
+            let ref3 = Firebase(url: "\(BASE_URL)/user_information/" + phoneNumber + "/friends")
+            ref3.observeEventType(.Value, withBlock: { snapshot in
+                let numbersToParse = "\(snapshot.value)"
+                var numbersToParseArray = numbersToParse.characters.split{$0 == " "}.map(String.init)
+                var parsedNumbers = Set<String>() //current user friends
+                if numbersToParseArray.count>3{
+                    numbersToParseArray.removeFirst(3)
+                    for var i = 0; i<numbersToParseArray.count; i+=3 {
+                        var temp = numbersToParseArray[i]
+                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
+                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
+                        parsedNumbers.insert(temp)
+                    }
+                }
+                print(parsedNumbers)
+                
+                //go through all the numbers in parsedNumbers (the users friends
+                //find who has overlapping time
+                for var number in parsedNumbers{
+                    var refF = Firebase(url: "\(BASE_URL)/user_information/" + number + "/from")
+                    var refT = Firebase(url: "\(BASE_URL)/user_information/" + number + "/to")
+                    var refN = Firebase(url: "\(BASE_URL)/user_information/" + number + "/name")
+                    var fromNS = NSDate()
+                    var toNS = NSDate()
+                    
+                    
+                    refF.observeEventType(.Value, withBlock: { snapshot in
+                        var from = "\(snapshot.value)"
+                        fromNS = dateFormatter.dateFromString(from)!
+                        refT.observeEventType(.Value, withBlock: { snapshot in
+                            var to = "\(snapshot.value)"
+                            toNS = dateFormatter.dateFromString(to)!
+                            if self.isAvail(fromNS, to: toNS) {
+                                print("YASSSSSSSSSS")
+                                refN.observeEventType(.Value, withBlock: { snapshot in
+                                    let pal = FoodPal(first_name:"\(snapshot.value)", last_name:"", from:from, to:to)!
+                                    self.foodPals += [pal]
+                                    self.tableView.reloadData()
+                                    
+                                }, withCancelBlock: { error in
+                                    print(error.description)
+                            })
+                            }
+                            
+                            }, withCancelBlock: { error in
+                                print(error.description)
+                        })
+                        
+                        
+                    }, withCancelBlock: { error in
+                            print(error.description)
+                    })
+                        
+                }
+                
+                
+                }, withCancelBlock: { error in
+                    print(error.description)
+            })
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
         //print(userFromNS!.isLessThanDate(userToNS!))
         
-        for var i=0; i<fromArr.count; i++ {
-            // convert times
-            let fr = dateFormatter.dateFromString(fromArr[i])
-            let to = dateFormatter.dateFromString(toArray[i])
-            if (fr!.isLessThanDate(userFromNS!) || to!.isEqualToDate(userFromNS!)) && to!.isGreaterThanDate(userFromNS!)  {
-                // ADD EQUAL TO for all statements
-                // valid
-                print("valid1 " + String(i))
-            } else if fr!.isLessThanDate(userToNS!) && (to!.isGreaterThanDate(userToNS!) || to!.isEqualToDate(userToNS!))   {
-                print("valid2")
-            } else if (fr!.isGreaterThanDate(userFromNS!) || fr!.isEqualToDate(userFromNS!)) && (to!.isLessThanDate(userToNS!) || to!.isEqualToDate(userToNS!)) {
-                print("valid3")
-            } else {
-                print("invalid")
-            }
-        }
+//        for var i=0; i<fromArr.count; i++ {
+//            // convert times
+//            let fr = dateFormatter.dateFromString(fromArr[i])
+//            let to = dateFormatter.dateFromString(toArray[i])
+//            if (fr!.isLessThanDate(userFromNS!) || to!.isEqualToDate(userFromNS!)) && to!.isGreaterThanDate(userFromNS!)  {
+//                // ADD EQUAL TO for all statements
+//                // valid
+//                print("valid1 " + String(i))
+//            } else if fr!.isLessThanDate(userToNS!) && (to!.isGreaterThanDate(userToNS!) || to!.isEqualToDate(userToNS!))   {
+//                print("valid2")
+//            } else if (fr!.isGreaterThanDate(userFromNS!) || fr!.isEqualToDate(userFromNS!)) && (to!.isLessThanDate(userToNS!) || to!.isEqualToDate(userToNS!)) {
+//                print("valid3")
+//            } else {
+//                print("invalid")
+//            }
+//        }
         
+    }
+    
+    func isAvail(from: NSDate, to: NSDate)->Bool{
+        var returnBool = false
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+        dateFormatter.dateFormat = "hh:mm a"
+        let userFromNS = dateFormatter.dateFromString(userFrom)
+        let userToNS = dateFormatter.dateFromString(userTo)
+        
+        if (from.isLessThanDate(userFromNS!) || to.isEqualToDate(userFromNS!)) && to.isGreaterThanDate(userFromNS!)  {
+            returnBool = true
+        } else if from.isLessThanDate(userToNS!) && (to.isGreaterThanDate(userToNS!) || to.isEqualToDate(userToNS!))   {
+            returnBool = true
+        } else if (from.isGreaterThanDate(userFromNS!) || from.isEqualToDate(userFromNS!)) && (to.isLessThanDate(userToNS!) || to.isEqualToDate(userToNS!)) {
+            returnBool = true
+        } else {
+            returnBool = false
+        }
+        return returnBool
     }
     
     func loadSampleAvailableFriends() {

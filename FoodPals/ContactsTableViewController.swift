@@ -30,15 +30,17 @@ class ContactsTableViewController: UITableViewController {
         while (CNContactStore.authorizationStatusForEntityType(.Contacts) == .NotDetermined) {}
         
         let uid = ( NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+        print(uid)
         let ref = Firebase(url: "\(BASE_URL)/users/" + uid + "/phoneNumber")
         let ref2 = Firebase(url: "\(BASE_URL)/users")
         var phoneNumber = String()
         ref.observeEventType(.Value, withBlock: { snapshot in
+            print("why")
             phoneNumber = "\(snapshot.value)"
             print(phoneNumber)
             //var friendList = Set<String>()
-            let ref = Firebase(url: "\(BASE_URL)/user_information/" + phoneNumber + "/friends")
-            ref.observeEventType(.Value, withBlock: { snapshot in
+            let ref3 = Firebase(url: "\(BASE_URL)/user_information/" + phoneNumber + "/friends")
+            ref3.observeEventType(.Value, withBlock: { snapshot in
                 let numbersToParse = "\(snapshot.value)"
                 var numbersToParseArray = numbersToParse.characters.split{$0 == " "}.map(String.init)
                 var parsedNumbers = Set<String>() //current user friends
@@ -52,7 +54,7 @@ class ContactsTableViewController: UITableViewController {
                         parsedNumbers.insert(temp)
                     }
                 }
-            
+                
                 //warning!
                 //this only works if the name does not have whitespace RIP
                 //warning!
@@ -62,12 +64,14 @@ class ContactsTableViewController: UITableViewController {
                     var appUserToParseArray = appUserToParse.characters.split{$0 == " "}.map(String.init)
                     var parsedAppUser = Set<String>() //everyone who uses the app
                     //print (appUserToParseArray)
-                    appUserToParseArray.removeFirst(12)
-                    for var i = 0; i<appUserToParseArray.count; i+=16 {
-                        var temp = appUserToParseArray[i]
-                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-                        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
-                        parsedAppUser.insert(temp)
+                    if appUserToParseArray.count>12{
+                        appUserToParseArray.removeFirst(12)
+                        for var i = 0; i<appUserToParseArray.count; i+=16 {
+                            var temp = appUserToParseArray[i]
+                            temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                            temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.punctuationCharacterSet())
+                            parsedAppUser.insert(temp)
+                        }
                     }
                     
                     // in contacts, in app users, but not in friends
@@ -104,9 +108,7 @@ class ContactsTableViewController: UITableViewController {
 
     
     func getContacts() {
-        print("Getting contacts")
         let store = CNContactStore()
-        
         if CNContactStore.authorizationStatusForEntityType(.Contacts) == .NotDetermined {
             store.requestAccessForEntityType(.Contacts, completionHandler: { (authorized: Bool, error: NSError?) -> Void in
                 if authorized {
