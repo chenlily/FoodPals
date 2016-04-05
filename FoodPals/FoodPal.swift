@@ -16,16 +16,18 @@ class FoodPal {
     var last_name: String
     var from: String
     var to: String
+    var phoneNumber: String
     
     // MARK: Initialization
     
-    init?(first_name: String, last_name: String, from: String, to: String) {
+    init?(first_name: String, last_name: String, from: String, to: String, phone_number: String) {
         self.first_name = first_name
         self.last_name = last_name
         self.from = from
         self.to = to
+        self.phoneNumber = phone_number
         
-        if first_name.isEmpty || from.isEmpty || to.isEmpty {
+        if first_name.isEmpty || from.isEmpty || to.isEmpty || phone_number.isEmpty {
             return nil
         }
     }

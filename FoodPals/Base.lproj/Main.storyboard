@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwz-xU-VQx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwz-xU-VQx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -193,11 +193,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Available Friends" id="DpA-H1-rly">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vtz-ti-eMA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="vtz-ti-eMA">
                             <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="doneButton:" destination="adp-1f-s8Z" id="3hS-mX-sEF"/>
                                 <segue destination="080-eR-5kB" kind="unwind" unwindAction="doneButton:" id="hbe-eN-Vgf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Text Pals" id="Z0R-Q1-3Ch">
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <connections>
+                                <action selector="textPalsButton:" destination="adp-1f-s8Z" id="rv0-cI-ocp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

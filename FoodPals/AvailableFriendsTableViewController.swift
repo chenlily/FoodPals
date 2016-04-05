@@ -16,6 +16,7 @@ class AvailableFriendsTableViewController: UITableViewController {
     var userFrom = String()
     var foodPals = [FoodPal]()
     let messageComposer = MessageComposer()
+    var numbersToText = Set<String>()
     
     var aFrom = "11:00 AM"
     var aTo = "12:00 PM"
@@ -87,8 +88,9 @@ class AvailableFriendsTableViewController: UITableViewController {
                                 print("YASSSSSSSSSS")
                                 refN.observeEventType(.Value, withBlock: { snapshot in
                                     //print("\(snapshot.value)")
-                                    let pal = FoodPal(first_name:"\(snapshot.value)", last_name:"", from:from, to:to)!
+                                    let pal = FoodPal(first_name:"\(snapshot.value)", last_name:"", from:from, to:to, phone_number: number)!
                                     self.foodPals += [pal]
+                                    print(number)
                                     print(self.foodPals)
                                     self.tableView.reloadData()
                                     
@@ -160,9 +162,9 @@ class AvailableFriendsTableViewController: UITableViewController {
     }
     
     func loadSampleAvailableFriends() {
-        let pal1 = FoodPal(first_name: "Kaylee", last_name: "Schonsheck", from: "11:30 AM", to: "12:30 PM")!
-        let pal2 = FoodPal(first_name: "Yunhan", last_name: "Wei", from: "12:00 PM", to: "2:00 PM")!
-        let pal3 = FoodPal(first_name: "Derek", last_name: "Siew" , from: "12:00 PM", to: "1:00 PM")!
+        let pal1 = FoodPal(first_name: "Kaylee", last_name: "Schonsheck", from: "11:30 AM", to: "12:30 PM", phone_number: "55555555")!
+        let pal2 = FoodPal(first_name: "Yunhan", last_name: "Wei", from: "12:00 PM", to: "2:00 PM", phone_number: "666666666")!
+        let pal3 = FoodPal(first_name: "Derek", last_name: "Siew" , from: "12:00 PM", to: "1:00 PM", phone_number: "7777777777")!
         foodPals += [pal1, pal2, pal3]
         print("Loaded sample friends")
     }
@@ -197,6 +199,7 @@ class AvailableFriendsTableViewController: UITableViewController {
         
         cell.nameLabel.text = foodPal.first_name + " " + foodPal.last_name
         cell.availabilityLabel.text = foodPal.from + " to " + foodPal.to
+        cell.phoneNumber = foodPal.phoneNumber
         
         if indexPath.row % 2 == 1 {
             cell.backgroundColor = UIColor(red: 249/255, green: 250/255, blue: 250/255, alpha: 1.0)
@@ -208,35 +211,62 @@ class AvailableFriendsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as? AvailableTableViewCell
         if cell != nil {
-            
-            if (messageComposer.canSendText()) {
-                // Obtain a configured MFMessageComposeViewController
-                let messageComposeVC = messageComposer.configuredMessageComposeViewController()
-                
-                // Present the configured MFMessageComposeViewController instance
-                // Note that the dismissal of the VC will be handled by the messageComposer instance,
-                // since it implements the appropriate delegate call-back
-                presentViewController(messageComposeVC, animated: true, completion: nil)
-            } else {
-                // Let the user know if his/her device isn't able to send text messages
-                let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", delegate: self, cancelButtonTitle: "OK")
-                errorAlert.show()
+            let toAdd = cell!.phoneNumber
+            if cell!.selected
+            {
+                cell!.selected = false
+                if cell!.accessoryType == UITableViewCellAccessoryType.None
+                {
+                    cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+                    //print(cell.NumberText.text)
+                    //if numbersToAdd.contains()
+                    if numbersToText.contains(toAdd) {
+                        
+                    } else {
+                        numbersToText.insert(toAdd)
+                    }
+                    
+                } else {
+                    cell!.accessoryType = UITableViewCellAccessoryType.None
+                    if numbersToText.contains(toAdd) {
+                        numbersToText.remove(toAdd)
+                    } else {
+                        
+                    }
+                    
+                }
             }
-            //            // Set the CellID
-            //            var label:UILabel = UILabel()
-            //            for subview in self.view.subviews {
-            //                if subview is UILabel {
-            //                    label = subview as UILabel
-            //                    break
-            //                }
-            //            }
-            //
-            //            var cellID: AnyObject! = (label.text == nil) ? "" : label.text
             
         }
+        print("numberstotext")
+        print(numbersToText)
     }
+    
+    
+    @IBAction func textPalsButton(sender: AnyObject) {
+        if (self.messageComposer.canSendText()) {
+            // Obtain a configured MFMessageComposeViewController
+            let messageComposeVC = self.messageComposer.configuredMessageComposeViewController()
+            var recipients = [String]()
+            for pal in numbersToText {
+                recipients.append(pal)
+            }
+            messageComposeVC.recipients = recipients
+            
+            // Present the configured MFMessageComposeViewController instance
+            // Note that the dismissal of the VC will be handled by the messageComposer instance,
+            // since it implements the appropriate delegate call-back
+            presentViewController(messageComposeVC, animated: true, completion: nil)
+        } else {
+            // Let the user know if his/her device isn't able to send text messages
+            let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", delegate: self, cancelButtonTitle: "OK")
+            errorAlert.show()
+        }
+        
+    }
+    
     
     /*
     // Override to support conditional editing of the table view.

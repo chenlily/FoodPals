@@ -14,6 +14,7 @@ class AvailableTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var availabilityLabel: UILabel!
+    var phoneNumber = String()
     
     override func awakeFromNib() {
         super.awakeFromNib()

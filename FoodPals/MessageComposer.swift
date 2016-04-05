@@ -9,7 +9,7 @@
 import Foundation
 import MessageUI
 
-let textMessageRecipients = ["734-277-7646"] // for pre-populating the recipients list (optional, depending on your needs)
+///let textMessageRecipients = ["734-277-7646"] // for pre-populating the recipients list (optional, depending on your needs)
 
 class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     
@@ -22,7 +22,7 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     func configuredMessageComposeViewController() -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
-        messageComposeVC.recipients = textMessageRecipients
+        //messageComposeVC.recipients = textMessageRecipients
         //messageComposeVC.body = "Hey friend - Just sending a text message in-app using Swift!"
         return messageComposeVC
     }
