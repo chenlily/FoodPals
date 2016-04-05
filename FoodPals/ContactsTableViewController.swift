@@ -25,6 +25,7 @@ class ContactsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         getContacts()
+        print("LOOK HERE LILY. GOT CONTACTS")
         
         // Just a quick fix...
         while (CNContactStore.authorizationStatusForEntityType(.Contacts) == .NotDetermined) {}
@@ -77,11 +78,14 @@ class ContactsTableViewController: UITableViewController {
                     // in contacts, in app users, but not in friends
                     var cncontacts2 = [CNContact]()
                     for contact in self.cncontacts {
-                        let contactNumber = contact.phoneNumbers[0].value as! CNPhoneNumber
-                        let cellNumber = self.sanitize(contactNumber.stringValue)
-                        if !parsedNumbers.contains(cellNumber) &&  parsedAppUser.contains(cellNumber){
-                            cncontacts2.insert(contact, atIndex: 0)
-                        }
+                        if !contact.phoneNumbers.isEmpty{
+                            let contactNumber = contact.phoneNumbers[0].value as! CNPhoneNumber
+                            let cellNumber = self.sanitize(contactNumber.stringValue)
+                            if !parsedNumbers.contains(cellNumber) &&  parsedAppUser.contains(cellNumber){
+                                cncontacts2.insert(contact, atIndex: 0)
+                                }
+                            }
+
                     }
                     self.cncontacts = cncontacts2
                     self.tableView.reloadData()
