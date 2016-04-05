@@ -73,21 +73,23 @@ class AvailableFriendsTableViewController: UITableViewController {
                     var refF = Firebase(url: "\(BASE_URL)/user_information/" + number + "/from")
                     var refT = Firebase(url: "\(BASE_URL)/user_information/" + number + "/to")
                     var refN = Firebase(url: "\(BASE_URL)/user_information/" + number + "/name")
-                    var fromNS = NSDate()
-                    var toNS = NSDate()
+                    //var fromNS = NSDate()
+                    //var toNS = NSDate()
                     
                     
                     refF.observeEventType(.Value, withBlock: { snapshot in
                         var from = "\(snapshot.value)"
-                        fromNS = dateFormatter.dateFromString(from)!
+                        var fromNS = dateFormatter.dateFromString(from)!
                         refT.observeEventType(.Value, withBlock: { snapshot in
                             var to = "\(snapshot.value)"
-                            toNS = dateFormatter.dateFromString(to)!
+                            var toNS = dateFormatter.dateFromString(to)!
                             if self.isAvail(fromNS, to: toNS) {
                                 print("YASSSSSSSSSS")
                                 refN.observeEventType(.Value, withBlock: { snapshot in
+                                    //print("\(snapshot.value)")
                                     let pal = FoodPal(first_name:"\(snapshot.value)", last_name:"", from:from, to:to)!
                                     self.foodPals += [pal]
+                                    print(self.foodPals)
                                     self.tableView.reloadData()
                                     
                                 }, withCancelBlock: { error in

@@ -25,7 +25,7 @@ class FoodPal {
         self.from = from
         self.to = to
         
-        if first_name.isEmpty || last_name.isEmpty || from.isEmpty || to.isEmpty {
+        if first_name.isEmpty || from.isEmpty || to.isEmpty {
             return nil
         }
     }
