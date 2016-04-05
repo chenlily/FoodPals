@@ -27,7 +27,7 @@ class AvailableFriendsTableViewController: UITableViewController {
     var toArray = ["12:00 PM","4:00 PM"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSampleAvailableFriends()
+        //loadSampleAvailableFriends()
         print("touch me")
         findAvailFriends()
         // Load the sample friend data
