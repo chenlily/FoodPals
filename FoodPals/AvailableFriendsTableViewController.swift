@@ -28,9 +28,9 @@ class AvailableFriendsTableViewController: UITableViewController {
     var toArray = ["12:00 PM","4:00 PM"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loadSampleAvailableFriends()
+        loadSampleAvailableFriends()
         print("touch me")
-        findAvailFriends()
+        //findAvailFriends()
         // Load the sample friend data
         
     }
@@ -162,10 +162,11 @@ class AvailableFriendsTableViewController: UITableViewController {
     }
     
     func loadSampleAvailableFriends() {
-        let pal1 = FoodPal(first_name: "Kaylee", last_name: "Schonsheck", from: "11:30 AM", to: "12:30 PM", phone_number: "55555555")!
-        let pal2 = FoodPal(first_name: "Yunhan", last_name: "Wei", from: "12:00 PM", to: "2:00 PM", phone_number: "666666666")!
-        let pal3 = FoodPal(first_name: "Derek", last_name: "Siew" , from: "12:00 PM", to: "1:00 PM", phone_number: "7777777777")!
-        foodPals += [pal1, pal2, pal3]
+        let pal1 = FoodPal(first_name: "Kevin", last_name: "Cai", from: "April 13 5:30 PM", to: "April 13 7:00 PM", phone_number: "55555555")!
+        let pal2 = FoodPal(first_name: "Jonathan", last_name: "Edwards", from: "April 13 6:00 PM", to: "April 13 7:00 PM", phone_number: "666666666")!
+        let pal3 = FoodPal(first_name: "Josh", last_name: "Campbell" , from: "April 13 6:15 PM", to: "April 13 7:00 PM", phone_number: "7777777777")!
+        let pal4 = FoodPal(first_name: "Chuckie", last_name: "Daniels" , from: "April 13 6:00 PM", to: "April 13 7:00 PM", phone_number: "7777777777")!
+        foodPals += [pal1, pal2, pal3, pal4]
         print("Loaded sample friends")
     }
 
